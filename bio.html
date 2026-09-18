@@ -67,13 +67,14 @@
             text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
         }
 
-        /* TEXTO INTEGRADO (SIN RECUADROS NI TARJETAS) */
+        /* TEXTO INTEGRADO Y ALINEADO A LA IZQUIERDA */
         .contenido-bio {
-            text-align: justify;
+            text-align: left; /* Alineado a la izquierda */
             font-size: 1.25em;
             color: #2b2219;
             margin-bottom: 40px;
             padding: 0 10px;
+            overflow: hidden; /* Limpia el float de la imagen */
         }
 
         .contenido-bio p {
@@ -85,6 +86,18 @@
             margin-bottom: 0;
         }
 
+        /* IMAGEN INTEGRADA CON EL TEXTO */
+        .bio-img {
+            float: right;
+            width: 280px;
+            max-width: 100%;
+            height: auto;
+            margin: 5px 0 20px 25px;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(140, 109, 63, 0.3);
+        }
+
         /* Adaptación móvil */
         @media (max-width: 600px) {
             h1 {
@@ -93,6 +106,12 @@
             .contenido-bio {
                 font-size: 1.1em;
                 padding: 0;
+            }
+            .bio-img {
+                float: none;
+                display: block;
+                margin: 0 auto 20px auto;
+                width: 100%;
             }
         }
     </style>
@@ -128,8 +147,10 @@
 
         <h1>Biografía</h1>
 
-        <!-- TEXTO COMPLETO DE LA BIOGRAFÍA INTEGRADO DIRECTAMENTE SOBRE EL FONDO -->
+        <!-- TEXTO DE LA BIOGRAFÍA ALINEADO A LA IZQUIERDA CON IMAGEN INTEGRADA -->
         <div class="contenido-bio">
+            <img src="imagenalfeizar.jpg" alt="Pablo Moreno Camacho" class="bio-img">
+
             <p>Pianista de 35 años de edad, combina su labor docente, como profesor de Repertorio con Piano para Instrumentos en el Conservatorio Superior de Música de Sevilla, y su actividad como concertista.</p>
 
             <p>Ha colaborado con orquestas como la Cordats Symfonie Orkest de Rotterdam, Orquesta Promúsica, Orquesta y Coro New Filarmónica, y, recientemente, con la Orquesta Filarmónica de Málaga, de la que forma parte de la bolsa de Piano, Celeste y Órgano, bajo la dirección de maestros como Manuel Bustos, Elisa Gómez, Kristian Kalsen y Susanna Mälkki.</p>
