@@ -2,168 +2,165 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Novedades</title>
-  <!-- Iconos de Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  
-  <style>
-    /* Estilos generales y fondo idéntico al inicio */
-    body {
-      margin: 0;
-      padding: 0;
-      background-color: #0d1117; /* Fondo oscuro idéntico a inicio (ajustar a #121212 o similar si usas otro) */
-      color: #f0f6fc;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novedades | Pablo Moreno Camacho</title>
+    <style>
+        body {
+            background-color: #111;
+            color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
 
-    /* Menú Superior con Círculos Dorados */
-    nav.nav-circulos {
-      display: flex;
-      justify-content: center;
-      gap: 25px;
-      margin-top: 30px;
-      margin-bottom: 40px;
-    }
+        /* Menú de navegación */
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 10px;
+            margin-bottom: 35px;
+            padding: 10px;
+        }
+        nav a {
+            color: #d4af37;
+            text-decoration: none;
+            font-size: 0.95em;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 10px 24px;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            border-radius: 30px;
+            background-color: rgba(22, 22, 22, 0.8);
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+        }
+        nav a:hover {
+            color: #111;
+            background-color: #d4af37;
+            border-color: #d4af37;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+            transform: translateY(-2px);
+        }
 
-    .circulo-dorado {
-      width: 70px;
-      height: 70px;
-      border-radius: 50%;
-      border: 2px solid #d4af37;
-      background: radial-gradient(circle, #2a2208 0%, #110e03 100%);
-      color: #f3e5ab;
-      text-decoration: none;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      box-shadow: 0 0 12px rgba(212, 175, 55, 0.25);
-      transition: all 0.3s ease;
-    }
+        /* Título principal */
+        h1 {
+            color: #d93838;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 35px;
+            font-size: 1.8em;
+        }
 
-    .circulo-dorado i {
-      font-size: 18px;
-      margin-bottom: 4px;
-      color: #d4af37;
-    }
+        /* Contenedor de cada evento */
+        .evento-card {
+            background-color: rgba(22, 22, 22, 0.9);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        }
 
-    .circulo-dorado:hover {
-      transform: translateY(-4px) scale(1.05);
-      border-color: #f3e5ab;
-      box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
-      color: #ffffff;
-    }
+        .fecha {
+            color: #888;
+            font-size: 0.9em;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
 
-    .circulo-dorado:hover i {
-      color: #ffffff;
-    }
+        .titulo-evento {
+            color: #ffffff;
+            font-size: 1.25em;
+            font-weight: 400;
+            margin: 5px 0;
+        }
 
-    /* Recuadro de Novedad */
-    .tarjeta-novedad {
-      background-color: #161b22;
-      border: 1px solid #d4af37;
-      border-radius: 16px;
-      padding: 28px;
-      max-width: 440px;
-      width: 90%;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
-      text-align: left;
-    }
+        .subtitulo-evento {
+            color: #cccccc;
+            font-size: 1.1em;
+            font-weight: 300;
+            margin: 5px 0 20px 0;
+        }
 
-    .badge-fecha {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background-color: rgba(212, 175, 55, 0.15);
-      color: #f3e5ab;
-      border: 1px solid rgba(212, 175, 55, 0.4);
-      padding: 6px 14px;
-      border-radius: 20px;
-      font-size: 14px;
-      font-weight: 600;
-      margin-bottom: 18px;
-    }
+        /* Botones de acción (Entradas / +Info) */
+        .btn-accion {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #d4af37;
+            text-decoration: none;
+            font-size: 0.9em;
+            font-weight: 600;
+            letter-spacing: 1px;
+            padding: 8px 20px;
+            border: 1px solid #d4af37;
+            border-radius: 20px;
+            background-color: transparent;
+            transition: all 0.3s ease;
+        }
 
-    .titulo-novedad {
-      margin: 0 0 24px 0;
-      font-size: 21px;
-      font-weight: 700;
-      color: #ffffff;
-      line-height: 1.4;
-    }
-
-    .btn-ticket {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      background: linear-gradient(135deg, #d4af37 0%, #aa820a 100%);
-      color: #000000;
-      font-weight: 800;
-      text-decoration: none;
-      padding: 14px 20px;
-      border-radius: 10px;
-      font-size: 14px;
-      letter-spacing: 0.5px;
-      box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
-      transition: all 0.2s ease;
-    }
-
-    .btn-ticket:hover {
-      transform: scale(1.02);
-      box-shadow: 0 6px 16px rgba(212, 175, 55, 0.5);
-      filter: brightness(1.1);
-    }
-  </style>
+        .btn-accion:hover {
+            color: #111;
+            background-color: #d4af37;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+        }
+    </style>
 </head>
 <body>
 
-  <!-- Círculos dorados en la parte superior -->
-  <nav class="nav-circulos">
-    <a href="index.html" class="circulo-dorado">
-      <i class="fa-solid fa-house"></i>
-      <span>Inicio</span>
-    </a>
-    <a href="novedades.html" class="circulo-dorado">
-      <i class="fa-solid fa-newspaper"></i>
-      <span>Novedades</span>
-    </a>
-  </nav>
+    <div class="container">
 
-  <!-- Tarjeta del evento -->
-  <div class="tarjeta-novedad">
-    
-    <!-- 1. Fecha con icono de agenda -->
-    <div class="badge-fecha">
-      <i class="fa-regular fa-calendar-days"></i>
-      <span>13 de Octubre de 2026</span>
+        <!-- Menú de navegación -->
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="novedades.html">Novedades</a>
+        </nav>
+
+        <h1>Novedades y Próximos Conciertos</h1>
+
+        <!-- Evento 1 -->
+        <div class="evento-card">
+            <div class="fecha">13 de octubre de 2026</div>
+            <div class="titulo-evento">XX Ciclo de Música de Cámara de la OFM</div>
+            <div style="margin-top: 15px;">
+                <a href="#" class="btn-accion" target="_blank">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M4 2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v11a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-11z"/>
+                    </svg>
+                    Reservar entradas
+                </a>
+            </div>
+        </div>
+
+        <!-- Evento 2 (Nuevo) -->
+        <div class="evento-card">
+            <div class="fecha">3 de junio de 2026</div>
+            <div class="titulo-evento">Concierto de Música de Cámara</div>
+            <div class="subtitulo-evento">Conservatorio Músico Ziryab, Córdoba</div>
+            <div style="margin-top: 15px;">
+                <a href="https://drive.google.com/file/d/1-QlOlxsXfPuQV_yAmPtfKv46iyQPC8v3/view?pli=1" class="btn-accion" target="_blank" rel="noopener noreferrer">
+                    <!-- Icono SVG de información ℹ️ -->
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                        <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                    </svg>
+                    +Info
+                </a>
+            </div>
+        </div>
+
     </div>
-
-    <!-- 2. Título -->
-    <h3 class="titulo-novedad">
-      XX Ciclo de Música de Cámara de la OFM
-    </h3>
-
-    <!-- 3. Botón de Reserva con ticket -->
-    <a href="https://tickets.museopicassomalaga.org/es/854-actividades/14093-xx-ciclo-de-musica-de-camara-de-la-ofm/17564203-trio-destenay" 
-       target="_blank" 
-       rel="noopener noreferrer" 
-       class="btn-ticket">
-      <i class="fa-solid fa-ticket"></i>
-      <span>RESERVA ENTRADAS</span>
-    </a>
-
-  </div>
 
 </body>
 </html>
