@@ -5,13 +5,18 @@
     <meta name="google-site-verification" content="c_ntxYkipGhuE2wmkr4KOI9b5SbYPXAeyXWRVpHIqeg" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pablo Moreno Camacho | Pianista</title>
+    <title>Pablo Moreno Camacho</title>
+    <!-- Carga de fuente elegante y tipográfica para el nombre -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&display=swap" rel="stylesheet">
+    
     <style>
         body {
             /* Fondo tono papiro/pergamino liso */
             background-color: #f4ecd8;
             color: #2b2219;
-            font-family: 'Georgia', 'Segoe UI', serif;
+            font-family: 'Georgia', serif;
             text-align: center;
             padding: 20px;
             margin: 0;
@@ -28,7 +33,7 @@
             justify-content: center;
             gap: 15px;
             margin-top: 10px;
-            margin-bottom: 35px;
+            margin-bottom: 25px;
             padding: 10px;
         }
         nav a {
@@ -52,13 +57,44 @@
             transform: translateY(-2px);
         }
 
-        /* Título principal en rojo clásico / borgoña */
-        h1, h2, h3 {
-            color: #8b1e1e;
-            font-weight: normal;
-            letter-spacing: 2px;
+        /* NOMBRE PRINCIPAL: Imponente, elegante y llamativo */
+        .nombre-artista {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8em;
+            font-weight: 800;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            
+            /* Degradado metálico/dorado refinado */
+            background: linear-gradient(135deg, #5c1111 0%, #8b1e1e 50%, #b84328 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            
+            /* Sombra sutil para dar volumen sin recargar */
+            text-shadow: 2px 3px 6px rgba(0, 0, 0, 0.15);
+        }
+
+        /* SIMBOLO/ICONO DISTINTIVO PROPIO (Monograma PMC + Clave) */
+        .simbolo-distintivo {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 5px;
             margin-bottom: 25px;
-            font-size: 1.8em;
+            cursor: pointer;
+            transition: transform 0.4s ease, filter 0.4s ease;
+        }
+        .simbolo-distintivo svg {
+            width: 65px;
+            height: 65px;
+            fill: #8c6d3f;
+            filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.15));
+        }
+        .simbolo-distintivo:hover {
+            transform: scale(1.08);
+            filter: drop-shadow(0px 0px 8px rgba(140, 109, 63, 0.6));
         }
 
         /* Imagen sin bordes visibles: disolución gradual hacia el papiro */
@@ -69,11 +105,9 @@
             opacity: 0;
             animation: fadeIn 2.5s ease-in forwards;
 
-            /* Máscara de transparencia de centro a bordes para eliminar cualquier corte rectangular */
             -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 75%);
             mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 75%);
 
-            /* Fusión tonal con el papiro */
             mix-blend-mode: multiply;
             filter: sepia(0.12) contrast(1.08);
         }
@@ -116,6 +150,14 @@
             box-shadow: 0 0 10px rgba(140, 109, 63, 0.4);
             transform: translateY(-2px);
         }
+
+        /* Adaptación a pantallas móviles */
+        @media (max-width: 600px) {
+            .nombre-artista {
+                font-size: 1.9em;
+                letter-spacing: 2px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -124,21 +166,18 @@
 
         <!-- Menú de navegación circular -->
         <nav>
-            <!-- Icono de Inicio (Casa) -->
             <a href="index.html" title="Inicio">
                 <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
                     <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5Z"/>
                     <path d="m8 3.293 4.712 4.712A.5.5 0 0 1 12.5 9h-9a.5.5 0 0 1-.354-.854L8 3.293Z"/>
                 </svg>
             </a>
-            <!-- Icono de Biografía (Perfil/Usuario) -->
             <a href="bio.html" title="Bio">
                 <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
                     <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
                     <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
                 </svg>
             </a>
-            <!-- Icono de Novedades (Documento) -->
             <a href="novedades.html" title="Novedades">
                 <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
                     <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z"/>
@@ -147,38 +186,51 @@
             </a>
         </nav>
 
-        <!-- Título principal -->
-        <h1>Pablo Moreno Camacho | Pianista</h1>
+        <!-- NOMBRE DESTACADO -->
+        <h1 class="nombre-artista">Pablo Moreno Camacho</h1>
+
+        <!-- ÍCONO DISTINTIVO Y EXCLUSIVO -->
+        <div class="simbolo-distintivo" title="Pablo Moreno Camacho">
+            <svg viewBox="0 0 100 100">
+                <!-- Círculo exterior elegante -->
+                <circle cx="50" cy="50" r="45" fill="none" stroke="#8c6d3f" stroke-width="1.5" stroke-dasharray="4 2"/>
+                <circle cx="50" cy="50" r="41" fill="none" stroke="#8c6d3f" stroke-width="1"/>
+                
+                <!-- Clave de sol con silueta de iniciales -->
+                <path d="M 52 20 C 52 20 45 35 45 42 C 45 48 50 50 52 50 C 56 50 60 46 60 41 C 60 34 50 31 43 36 C 34 42 32 54 37 62 C 42 70 53 72 61 66 C 68 61 70 51 67 43 L 64 34 Q 63 22 53 14 C 48 10 43 14 43 19 C 43 23 46 25 48 23 Q 48 18 52 20 Z M 50 12 L 50 78 C 45 77 40 80 40 85 C 40 89 44 92 49 91 C 54 90 57 85 55 80 L 55 25" fill="none" stroke="#8c6d3f" stroke-width="2.5" stroke-linecap="round"/>
+                
+                <!-- Teclas estilizadas integradas en la base -->
+                <rect x="32" y="47" width="3" height="10" fill="#8c6d3f"/>
+                <rect x="37" y="47" width="3" height="10" fill="#8c6d3f"/>
+                <rect x="62" y="47" width="3" height="10" fill="#8c6d3f"/>
+            </svg>
+        </div>
 
         <!-- Audio de fondo -->
         <audio id="audio-fondo" loop preload="auto">
             <source src="sospiro.mp3" type="audio/mpeg">
         </audio>
 
-        <!-- Imagen con bordes eliminados mediante degradado elíptico -->
+        <!-- Imagen principal totalmente integrada -->
         <img src="Imagen%20de%20Codex%202%20sept%202026,%2020_16_01.png" alt="Pablo Moreno Camacho" class="foto-principal">
 
-        <!-- Iconos de Redes Sociales y Contacto a la izquierda -->
+        <!-- Redes Sociales y Contacto -->
         <div class="redes-sociales">
-            <!-- YouTube -->
             <a href="https://www.youtube.com/@pablomorenocamachopiano" target="_blank" rel="noopener noreferrer" title="YouTube">
                 <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
                     <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022 0.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004c-.702-.027-1.402-.066-2.003-.13a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003c.83-.028 1.848-.035 2.906-.035zM6.1 5.25v5.5l4.8-2.75L6.1 5.25z"/>
                 </svg>
             </a>
-            <!-- Instagram -->
             <a href="https://www.instagram.com/pablomorenocamacho/" target="_blank" rel="noopener noreferrer" title="Instagram">
                 <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
                     <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
                 </svg>
             </a>
-            <!-- Facebook -->
             <a href="https://www.facebook.com/pablo.morenocamacho.1/" target="_blank" rel="noopener noreferrer" title="Facebook">
                 <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
                     <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
                 </svg>
             </a>
-            <!-- Yahoo / Email -->
             <a href="mailto:pablopianista1991@yahoo.com" title="Correo electrónico">
                 <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
                     <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
