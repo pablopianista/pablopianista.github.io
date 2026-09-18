@@ -8,9 +8,14 @@
     <title>Pablo Moreno Camacho | Pianista</title>
     <style>
         body {
-            background-color: #111;
-            color: #fff;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* Fondo con tono papiro antiguo / pergamino cálido */
+            background-color: #f4ecd8;
+            background-image: radial-gradient(#f9f4e8 20%, transparent 20%),
+                              radial-gradient(#e8ddc4 20%, transparent 20%);
+            background-size: 40px 40px;
+            background-position: 0 0, 20px 20px;
+            color: #2b2219;
+            font-family: 'Georgia', 'Segoe UI', serif;
             text-align: center;
             padding: 20px;
             margin: 0;
@@ -21,7 +26,7 @@
             margin: 0 auto;
         }
 
-        /* Menú de navegación elegante con botones circulares e iconos */
+        /* Menú de navegación elegante con estilo bronce/dorado clásico */
         nav {
             display: flex;
             justify-content: center;
@@ -36,37 +41,38 @@
             justify-content: center;
             width: 45px;
             height: 45px;
-            color: #d4af37;
+            color: #8c6d3f;
             text-decoration: none;
-            border: 1px solid rgba(212, 175, 55, 0.4);
+            border: 1px solid #8c6d3f;
             border-radius: 50%;
-            background-color: rgba(22, 22, 22, 0.8);
+            background-color: rgba(250, 246, 237, 0.9);
             transition: all 0.3s ease;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
         }
         nav a:hover {
-            color: #111;
-            background-color: #d4af37;
-            border-color: #d4af37;
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+            color: #f4ecd8;
+            background-color: #8c6d3f;
+            box-shadow: 0 0 10px rgba(140, 109, 63, 0.4);
             transform: translateY(-2px);
         }
 
-        /* Títulos principales en color rojo */
+        /* Título principal en rojo clásico / borgoña */
         h1, h2, h3 {
-            color: #d93838;
-            font-weight: 300;
+            color: #8b1e1e;
+            font-weight: normal;
             letter-spacing: 2px;
             margin-bottom: 25px;
             font-size: 1.8em;
         }
 
-        /* Imagen con animación Fade-In */
+        /* Imagen con marco elegante y animación Fade-In */
         .foto-principal {
             max-width: 100%;
             height: auto;
-            border-radius: 8px;
-            margin-bottom: 20px;
+            border-radius: 6px;
+            border: 1px solid rgba(140, 109, 63, 0.3);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            margin-bottom: 25px;
             opacity: 0;
             animation: fadeIn 2.5s ease-in forwards;
         }
@@ -82,7 +88,7 @@
             }
         }
 
-        /* Redes Sociales e Iconos de contacto alineados a la izquierda */
+        /* Redes Sociales e Iconos alineados a la izquierda */
         .redes-sociales {
             display: flex;
             justify-content: flex-start;
@@ -95,19 +101,18 @@
             justify-content: center;
             width: 45px;
             height: 45px;
-            color: #d4af37;
+            color: #8c6d3f;
             text-decoration: none;
-            border: 1px solid rgba(212, 175, 55, 0.4);
+            border: 1px solid #8c6d3f;
             border-radius: 50%;
-            background-color: rgba(22, 22, 22, 0.8);
+            background-color: rgba(250, 246, 237, 0.9);
             transition: all 0.3s ease;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
         }
         .redes-sociales a:hover {
-            color: #111;
-            background-color: #d4af37;
-            border-color: #d4af37;
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+            color: #f4ecd8;
+            background-color: #8c6d3f;
+            box-shadow: 0 0 10px rgba(140, 109, 63, 0.4);
             transform: translateY(-2px);
         }
     </style>
@@ -116,7 +121,7 @@
 
     <div class="container">
 
-        <!-- Menú de navegación circular con botones en dorado -->
+        <!-- Menú de navegación circular -->
         <nav>
             <!-- Icono de Inicio (Casa) -->
             <a href="index.html" title="Inicio">
@@ -141,7 +146,7 @@
             </a>
         </nav>
 
-        <!-- Título principal en rojo -->
+        <!-- Título principal -->
         <h1>Pablo Moreno Camacho | Pianista</h1>
 
         <!-- Audio de fondo -->
@@ -152,7 +157,7 @@
         <!-- Imagen principal -->
         <img src="Imagen%20de%20Codex%202%20sept%202026,%2020_16_01.png" alt="Pablo Moreno Camacho" class="foto-principal">
 
-        <!-- Iconos de Redes Sociales y Contacto -->
+        <!-- Iconos de Redes Sociales y Contacto a la izquierda -->
         <div class="redes-sociales">
             <!-- YouTube -->
             <a href="https://www.youtube.com/@pablomorenocamachopiano" target="_blank" rel="noopener noreferrer" title="YouTube">
