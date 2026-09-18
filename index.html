@@ -8,7 +8,7 @@
     <title>Pablo Moreno Camacho | Pianista</title>
     <style>
         body {
-            /* Fondo tono papiro/pergamino liso sin tramas ni puntos */
+            /* Fondo tono papiro/pergamino liso */
             background-color: #f4ecd8;
             color: #2b2219;
             font-family: 'Georgia', 'Segoe UI', serif;
@@ -61,16 +61,21 @@
             font-size: 1.8em;
         }
 
-        /* Imagen con marco elegante y animación Fade-In */
+        /* Imagen integrada orgánicamente con el fondo de papiro */
         .foto-principal {
             max-width: 100%;
             height: auto;
-            border-radius: 6px;
-            border: 1px solid rgba(140, 109, 63, 0.3);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
             margin-bottom: 25px;
             opacity: 0;
             animation: fadeIn 2.5s ease-in forwards;
+
+            /* Difuminado suave en los 4 bordes para fundir con el fondo */
+            -webkit-mask-image: radial-gradient(circle, black 60%, transparent 100%);
+            mask-image: radial-gradient(circle, black 60%, transparent 100%);
+
+            /* Fusión cromática con el tono papiro */
+            mix-blend-mode: multiply;
+            filter: sepia(0.15) contrast(1.05);
         }
 
         @keyframes fadeIn {
@@ -79,7 +84,7 @@
                 transform: translateY(10px);
             }
             100% {
-                opacity: 1;
+                opacity: 0.92; /* Leve transparencia para integrarse aún mejor */
                 transform: translateY(0);
             }
         }
@@ -150,7 +155,7 @@
             <source src="sospiro.mp3" type="audio/mpeg">
         </audio>
 
-        <!-- Imagen principal -->
+        <!-- Imagen principal con bordes difuminados y modo de fusión -->
         <img src="Imagen%20de%20Codex%202%20sept%202026,%2020_16_01.png" alt="Pablo Moreno Camacho" class="foto-principal">
 
         <!-- Iconos de Redes Sociales y Contacto a la izquierda -->
