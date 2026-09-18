@@ -47,6 +47,17 @@ HTML
             text-align: center;
             box-shadow: 0 4px 10px rgba(0,0,0,0.5);
         }
+        /* Fecha del evento */
+        .post-date {
+            color: #ccc;
+            font-size: 1.05em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
         /* Recuadro Amarillo */
         .badge-amarillo {
             display: block;
@@ -94,12 +105,17 @@ HTML
         <h1>Novedades</h1>
 
         <article class="post">
+            <!-- Fecha con icono -->
+            <div class="post-date">
+                📅 13 de octubre de 2026
+            </div>
+
             <!-- Recuadro Amarillo con el evento -->
             <div class="badge-amarillo">
                 XX Ciclo de Música de Cámara de la OFM
             </div>
 
-            <!-- Botón interactivo para comprar/reservar entradas con icono de ticket -->
+            <!-- Botón interactivo para reservar entradas -->
             <a href="https://tickets.museopicassomalaga.org/es/854-actividades/14093-xx-ciclo-de-musica-de-camara-de-la-ofm/17564203-trio-destenay" target="_blank" class="btn-ticket">
                 🎟️ Reservar entradas
             </a>
