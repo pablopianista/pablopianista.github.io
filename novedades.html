@@ -1,123 +1,28 @@
 HTML
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Novedades | Pablo Moreno Camacho</title>
-    <style>
-        body {
-            background-color: #111;
-            color: #fff;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            text-align: center;
-            padding: 20px;
-            margin: 0;
-            line-height: 1.6;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
+<!-- Cargar iconos de Font Awesome (si no los tienes en tu página) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-        /* Menú de navegación con botones en forma de cápsula/círculo redondeado */
-        nav {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 10px;
-            margin-bottom: 35px;
-            padding: 10px;
-        }
-        nav a {
-            color: #d4af37;
-            text-decoration: none;
-            font-size: 0.95em;
-            font-weight: 600;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            padding: 10px 24px;
-            border: 1px solid rgba(212, 175, 55, 0.4);
-            border-radius: 30px;
-            background-color: rgba(22, 22, 22, 0.8);
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-        }
-        nav a:hover {
-            color: #111;
-            background-color: #d4af37;
-            border-color: #d4af37;
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
-            transform: translateY(-2px);
-        }
+<!-- Recuadro Novedad -->
+<div style="background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 24px; max-width: 440px; margin: 20px auto; font-family: system-ui, -apple-system, sans-serif; box-shadow: 0 10px 20px rgba(0,0,0,0.06);">
+  
+  <!-- Fecha con icono de agenda -->
+  <div style="display: inline-flex; align-items: center; gap: 8px; background-color: #fffbeb; color: #92400e; border: 1px solid #fef3c7; padding: 6px 12px; border-radius: 8px; font-size: 14px; font-weight: 600; margin-bottom: 16px;">
+    <i class="fa-regular fa-calendar-days" style="color: #d97706;"></i>
+    <span>13 de Octubre de 2026</span>
+  </div>
 
-        /* Títulos en rojo */
-        h1, h2, h3 {
-            color: #d93838;
-            font-weight: 300;
-            letter-spacing: 2px;
-            margin-bottom: 25px;
-            font-size: 1.8em;
-        }
+  <!-- Título del evento -->
+  <h3 style="margin: 0 0 20px 0; font-size: 20px; font-weight: 700; color: #0f172a; line-height: 1.35;">
+    XX Ciclo de Música de Cámara de la OFM
+  </h3>
 
-        /* Contenido de novedades */
-        .novedades-container {
-            text-align: justify;
-            margin-top: 20px;
-        }
-        .novedad-item {
-            background-color: #161616;
-            border: 1px solid #2a2a2a;
-            border-radius: 8px;
-            padding: 25px;
-            margin-bottom: 25px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-        }
-        .novedad-item h2 {
-            font-size: 1.3em;
-            margin-top: 0;
-            margin-bottom: 10px;
-            text-align: left;
-        }
-        .fecha {
-            color: #888;
-            font-size: 0.9em;
-            margin-bottom: 15px;
-            display: block;
-        }
-        .novedad-item p {
-            color: #ffffff;
-            font-size: 1em;
-            line-height: 1.7;
-            margin: 0;
-        }
-    </style>
-</head>
-<body>
+  <!-- Recuadro botón con icono de ticket y enlace -->
+  <a href="https://tickets.museopicassomalaga.org/es/854-actividades/14093-xx-ciclo-de-musica-de-camara-de-la-ofm/17564203-trio-destenay" 
+     target="_blank" 
+     rel="noopener noreferrer" 
+     style="display: flex; align-items: center; justify-content: center; gap: 10px; background-color: #0f172a; color: #ffffff; font-weight: 700; text-decoration: none; padding: 14px 20px; border-radius: 10px; font-size: 14px; letter-spacing: 0.5px;">
+    <i class="fa-solid fa-ticket" style="color: #fbbf24; font-size: 16px;"></i>
+    <span>RESERVA ENTRADAS</span>
+  </a>
 
-    <div class="container">
-
-        <!-- Menú de navegación redondeado (Inicio y Novedades) -->
-        <nav>
-            <a href="index.html">Inicio</a>
-            <a href="novedades.html">Novedades</a>
-        </nav>
-
-        <!-- Título principal en rojo -->
-        <h1>Novedades y Proyectos</h1>
-
-        <!-- Lista de novedades -->
-        <div class="novedades-container">
-            
-            <div class="novedad-item">
-                <h2>Próximos Conciertos y Actividades</h2>
-                <span class="fecha">Temporada 2026</span>
-                <p>Aquí se irán publicando las fechas de los próximos conciertos, recitales de música de cámara y novedades sobre colaboraciones orquestales y repertorio docente.</p>
-            </div>
-
-        </div>
-
-    </div>
-
-</body>
-</html>
+</div>
