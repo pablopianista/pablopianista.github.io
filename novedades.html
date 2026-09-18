@@ -37,46 +37,46 @@ HTML
             color: #d4af37;
             margin-bottom: 30px;
         }
-        /* Estilo tipo Red Social / Tarjetas */
+        /* Tarjeta principal */
         .post {
             background-color: #1e1e1e;
             border: 1px solid #333;
             border-radius: 10px;
-            padding: 20px;
+            padding: 25px;
             margin-bottom: 25px;
-            text-align: left;
+            text-align: center;
             box-shadow: 0 4px 10px rgba(0,0,0,0.5);
         }
-        .post-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-            border-bottom: 1px solid #2a2a2a;
-            padding-bottom: 10px;
-        }
-        .post-author {
-            font-weight: bold;
-            color: #d4af37;
+        /* Recuadro Amarillo */
+        .badge-amarillo {
+            display: block;
+            background-color: #ffd700;
+            color: #000;
+            padding: 12px 15px;
+            border-radius: 8px;
             font-size: 1.1em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(255, 215, 0, 0.2);
         }
-        .post-date {
-            font-size: 0.8em;
-            color: #888;
-            margin-left: auto;
-        }
-        .post-content {
-            color: #ddd;
-            font-size: 1em;
-        }
-        .badge {
-            display: inline-block;
+        /* Botón de Reservar Entradas */
+        .btn-ticket {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
             background-color: #d4af37;
             color: #000;
-            padding: 3px 8px;
-            border-radius: 5px;
-            font-size: 0.8em;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 1em;
             font-weight: bold;
-            margin-bottom: 10px;
+            transition: background-color 0.2s, transform 0.1s;
+        }
+        .btn-ticket:hover {
+            background-color: #f1c40f;
+            transform: scale(1.03);
         }
     </style>
 </head>
@@ -91,18 +91,18 @@ HTML
             <a href="novedades.html">Novedades</a>
         </nav>
 
-        <h1>Novedades & Conciertos</h1>
+        <h1>Novedades</h1>
 
-        <!-- PUBLICACIÓN 1 -->
         <article class="post">
-            <div class="post-header">
-                <span class="post-author">Pablo PMC</span>
-                <span class="post-date">Próximamente</span>
+            <!-- Recuadro Amarillo con el evento -->
+            <div class="badge-amarillo">
+                XX Ciclo de Música de Cámara de la OFM
             </div>
-            <span class="badge">Concierto</span>
-            <div class="post-content">
-                <p>¡Bienvenidos a la nueva sección de novedades! Aquí iré publicando las fechas de los próximos conciertos, eventos y noticias musicales.</p>
-            </div>
+
+            <!-- Botón interactivo para comprar/reservar entradas con icono de ticket -->
+            <a href="https://tickets.museopicassomalaga.org/es/854-actividades/14093-xx-ciclo-de-musica-de-camara-de-la-ofm/17564203-trio-destenay" target="_blank" class="btn-ticket">
+                🎟️ Reservar entradas
+            </a>
         </article>
 
     </div>
