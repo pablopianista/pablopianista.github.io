@@ -10,7 +10,7 @@ HTML
         body {
             background-color: #111;
             color: #fff;
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             text-align: center;
             padding: 20px;
             margin: 0;
@@ -20,25 +20,45 @@ HTML
             max-width: 800px;
             margin: 0 auto;
         }
+
+        /* Menú de navegación elegante */
         nav {
-            margin-bottom: 30px;
-            padding: 10px 0;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 10px;
+            margin-bottom: 35px;
+            padding: 10px;
         }
         nav a {
             color: #d4af37;
             text-decoration: none;
-            font-size: 1.1em;
-            margin: 0 15px;
-            font-weight: bold;
+            font-size: 0.95em;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 10px 24px;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            border-radius: 30px;
+            background-color: rgba(22, 22, 22, 0.8);
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
         }
         nav a:hover {
-            text-decoration: underline;
+            color: #111;
+            background-color: #d4af37;
+            border-color: #d4af37;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+            transform: translateY(-2px);
         }
-        h1 {
-            color: #d4af37;
-            font-weight: normal;
-            letter-spacing: 1px;
+
+        /* Títulos principales en color rojo */
+        h1, h2, h3 {
+            color: #d93838;
+            font-weight: 300;
+            letter-spacing: 2px;
             margin-bottom: 25px;
+            font-size: 1.8em;
         }
 
         /* Imagen con animación Fade-In */
@@ -62,7 +82,7 @@ HTML
             }
         }
 
-        /* Biografía limpia SIN recuadro ni fondo */
+        /* Biografía con texto blanco */
         .bio-container {
             text-align: justify;
             background: none;
@@ -72,7 +92,7 @@ HTML
             box-shadow: none;
         }
         .bio-container p {
-            color: #ddd;
+            color: #ffffff;
             font-size: 1.05em;
             line-height: 1.8;
             margin-bottom: 20px;
@@ -89,25 +109,25 @@ HTML
         <!-- Menú de navegación -->
         <nav>
             <a href="index.html">Inicio</a>
-            <a href="cv.html">CV</a>
             <a href="novedades.html">Novedades</a>
         </nav>
 
+        <!-- Título principal en rojo -->
         <h1>Pablo Moreno Camacho | Pianista</h1>
 
-        <!-- Elemento de audio -->
+        <!-- Audio de fondo -->
         <audio id="audio-fondo" loop preload="auto">
             <source src="sospiro.mp3" type="audio/mpeg">
         </audio>
 
-        <!-- Imagen con animación -->
+        <!-- Imagen principal -->
         <img src="Imagen%20de%20Codex%202%20sept%202026,%2020_16_01.png" alt="Pablo Moreno Camacho" class="foto-principal">
 
-        <!-- Texto de biografía sin recuadro -->
+        <!-- Biografía en blanco -->
         <div class="bio-container">
             <p>Pianista de 35 años de edad, combina su labor docente, como profesor de Repertorio con Piano para Instrumentos en el Conservatorio Superior de Música de Sevilla, y su actividad como concertista.</p>
 
-            <p>Ha colaborado con orquestas como la Cordats Symfonie Orkest de Rotterdam, Orquesta Promúsica, Orquesta y Coro New Filarmónica, y, recientemente, con la Orquesta Filarmónica de Málaga, de la que forma parte de la bolsa de Piano, Celesta y Órgano, bajo la dirección de maestros como Manuel Bustos, Elisa Gómez, Kristian Kalsen y Susanna Mälkki.</p>
+            <p>Ha colaborado con orquestas como la Cordats Symfonie Orkest de Rotterdam, Orquesta Promúsica, Orquesta y Coro New Filarmónica, y, recientemente, con la Orquesta Filarmónica de Málaga, de la que forma parte de la bolsa de Piano, Celeste y Órgano, bajo la dirección de maestros como Manuel Bustos, Elisa Gómez, Kristian Kalsen y Susanna Mälkki.</p>
 
             <p>A lo largo de su carrera, su trayectoria ha sido reconocida con 24 galardones en concursos nacionales e internacionales entre los que destacan los primeros premios en: Málaga Crea-Muestra Jóvenes Intérpretes (2019), Concurso Nacional Río Órbigo (2008), I Certamen Nacional de Música de Cámara Visitación Magarzo (2008), XXVI Certamen Nacional Marisa Montiel (2006) y X Certamen Nacional Ángeles Reina (2000). También ha sido finalista en el Concurso de Música de Cámara de Roma (2019).</p>
 
@@ -122,7 +142,7 @@ HTML
 
     </div>
 
-    <!-- Script de reproducción automática e interacción -->
+    <!-- Script de audio -->
     <script>
         const audio = document.getElementById('audio-fondo');
 
@@ -134,10 +154,7 @@ HTML
             }
         }
 
-        // Intenta sonar de inicio
         window.addEventListener('load', reproducir);
-
-        // Activa el sonido al primer toque/clic en cualquier parte de la pantalla
         document.addEventListener('click', reproducir, { once: true });
         document.addEventListener('touchstart', reproducir, { once: true });
     </script>
