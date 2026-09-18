@@ -62,15 +62,14 @@ HTML
             }
         }
 
-        /* Bloque de biografía */
+        /* Biografía limpia SIN recuadro ni fondo */
         .bio-container {
             text-align: justify;
-            background-color: #161616;
-            border: 1px solid #2a2a2a;
-            border-radius: 8px;
-            padding: 30px;
+            background: none;
+            border: none;
+            padding: 0;
             margin-top: 20px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            box-shadow: none;
         }
         .bio-container p {
             color: #ddd;
@@ -96,15 +95,15 @@ HTML
 
         <h1>Pablo Moreno Camacho | Pianista</h1>
 
-        <!-- Audio oculto con el archivo sospiro.mp3 -->
-        <audio id="audio-fondo" autoplay loop hidden>
+        <!-- Elemento de audio -->
+        <audio id="audio-fondo" loop preload="auto">
             <source src="sospiro.mp3" type="audio/mpeg">
         </audio>
 
-        <!-- Imagen principal enlazada con animación de aparición progresiva -->
+        <!-- Imagen con animación -->
         <img src="Imagen%20de%20Codex%202%20sept%202026,%2020_16_01.png" alt="Pablo Moreno Camacho" class="foto-principal">
 
-        <!-- Sección de biografía -->
+        <!-- Texto de biografía sin recuadro -->
         <div class="bio-container">
             <p>Pianista de 35 años de edad, combina su labor docente, como profesor de Repertorio con Piano para Instrumentos en el Conservatorio Superior de Música de Sevilla, y su actividad como concertista.</p>
 
@@ -123,17 +122,25 @@ HTML
 
     </div>
 
-    <!-- Script para reproducir audio al primer clic si el navegador lo bloquea de inicio -->
+    <!-- Script de reproducción automática e interacción -->
     <script>
-        document.addEventListener('click', function() {
-            var audio = document.getElementById('audio-fondo');
+        const audio = document.getElementById('audio-fondo');
+
+        function reproducir() {
             if (audio.paused) {
-                audio.play();
+                audio.play().catch(function(e) {
+                    console.log("Esperando interacción del usuario...");
+                });
             }
-        }, { once: true });
+        }
+
+        // Intenta sonar de inicio
+        window.addEventListener('load', reproducir);
+
+        // Activa el sonido al primer toque/clic en cualquier parte de la pantalla
+        document.addEventListener('click', reproducir, { once: true });
+        document.addEventListener('touchstart', reproducir, { once: true });
     </script>
 
 </body>
 </html>
-
-
