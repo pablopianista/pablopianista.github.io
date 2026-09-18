@@ -34,18 +34,35 @@ HTML
         nav a:hover {
             text-decoration: underline;
         }
-        .foto-principal {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            margin-bottom: 30px;
-        }
         h1 {
             color: #d4af37;
             font-weight: normal;
             letter-spacing: 1px;
             margin-bottom: 25px;
         }
+
+        /* Imagen con animación Fade-In */
+        .foto-principal {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            opacity: 0;
+            animation: fadeIn 2.5s ease-in forwards;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Bloque de biografía */
         .bio-container {
             text-align: justify;
             background-color: #161616;
@@ -79,8 +96,13 @@ HTML
 
         <h1>Pablo Moreno Camacho | Pianista</h1>
 
-        <!-- Imagen recortada sin texto flotante si falla -->
-        <img src="foto-principal.png" alt="" class="foto-principal">
+        <!-- Audio oculto con el archivo sospiro.mp3 -->
+        <audio id="audio-fondo" autoplay loop hidden>
+            <source src="sospiro.mp3" type="audio/mpeg">
+        </audio>
+
+        <!-- Imagen principal enlazada con animación de aparición progresiva -->
+        <img src="Imagen%20de%20Codex%202%20sept%202026,%2020_16_01.png" alt="Pablo Moreno Camacho" class="foto-principal">
 
         <!-- Sección de biografía -->
         <div class="bio-container">
@@ -101,5 +123,17 @@ HTML
 
     </div>
 
+    <!-- Script para reproducir audio al primer clic si el navegador lo bloquea de inicio -->
+    <script>
+        document.addEventListener('click', function() {
+            var audio = document.getElementById('audio-fondo');
+            if (audio.paused) {
+                audio.play();
+            }
+        }, { once: true });
+    </script>
+
 </body>
 </html>
+
+
