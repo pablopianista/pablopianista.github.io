@@ -59,16 +59,31 @@
             transform: translateY(-2px);
         }
 
-        /* Tarjetas de eventos sobrias */
+        /* Tarjetas de eventos sobrias (Eventos Pasados) */
         .evento {
-            background-color: rgba(18, 18, 18, 0.88);
+            background-color: rgba(18, 18, 18, 0.65);
             backdrop-filter: blur(8px);
-            border: 1px solid rgba(212, 175, 55, 0.3);
+            border: 1px solid rgba(212, 175, 55, 0.2);
             border-radius: 8px;
             padding: 25px;
             margin-bottom: 25px;
             text-align: center;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            opacity: 0.85;
+            transition: all 0.3s ease;
+        }
+
+        .evento:hover {
+            opacity: 1;
+            border-color: rgba(212, 175, 55, 0.4);
+        }
+
+        /* Recuadro destacado para el evento futuro (13 de Octubre de 2026) */
+        .evento.destacado {
+            background: linear-gradient(145deg, rgba(30, 26, 15, 0.92), rgba(18, 18, 18, 0.95));
+            border: 1.5px solid #d4af37;
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.25), 0 8px 25px rgba(0, 0, 0, 0.8);
+            opacity: 1;
         }
 
         .fecha {
@@ -77,6 +92,11 @@
             margin-bottom: 10px;
             letter-spacing: 1.5px;
             font-weight: 600;
+        }
+
+        .evento.destacado .fecha {
+            color: #f3e5ab;
+            font-size: 0.95em;
         }
 
         .titulo-evento {
@@ -113,6 +133,17 @@
             background-color: #d4af37;
             color: #111;
         }
+
+        .evento.destacado .btn-reserva {
+            background-color: #d4af37;
+            color: #111;
+        }
+
+        .evento.destacado .btn-reserva:hover {
+            background-color: #f3e5ab;
+            border-color: #f3e5ab;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+        }
     </style>
 </head>
 <body>
@@ -128,7 +159,7 @@
                     <path d="m8 3.293 4.712 4.712A.5.5 0 0 1 12.5 9h-9a.5.5 0 0 1-.354-.854L8 3.293Z"/>
                 </svg>
             </a>
-            <!-- Icono de Novedades (Documento / Agenda / Periódico clasico) -->
+            <!-- Icono de Novedades (Documento) -->
             <a href="novedades.html" title="Novedades">
                 <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
                     <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z"/>
@@ -137,8 +168,8 @@
             </a>
         </nav>
 
-        <!-- Evento 1 -->
-        <div class="evento">
+        <!-- Evento 1 (Próximo / Destacado en dorado sobrio) -->
+        <div class="evento destacado">
             <div class="fecha">13 de octubre de 2026</div>
             <div class="titulo-evento">XX Ciclo de Música de Cámara de la OFM</div>
             <a href="https://tickets.museopicassomalaga.org/es/854-actividades/14093-xx-ciclo-de-musica-de-camara-de-la-ofm/17564203-trio-destenay" class="btn-reserva" target="_blank" rel="noopener noreferrer">🎫 Reservar entradas</a>
