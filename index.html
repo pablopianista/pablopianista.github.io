@@ -6,17 +6,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pablo Moreno Camacho</title>
-    <!-- Carga de fuente elegante y tipográfica para el nombre -->
+    <!-- Tipografía clásica, fina y distinguida -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
     
     <style>
         body {
             /* Fondo tono papiro/pergamino liso */
             background-color: #f4ecd8;
             color: #2b2219;
-            font-family: 'Georgia', serif;
+            font-family: 'Cormorant Garamond', 'Georgia', serif;
             text-align: center;
             padding: 20px;
             margin: 0;
@@ -57,44 +57,34 @@
             transform: translateY(-2px);
         }
 
-        /* NOMBRE PRINCIPAL: Imponente, elegante y llamativo */
+        /* NOMBRE PRINCIPAL: Elegante, sobrio y proporcionado */
         .nombre-artista {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.8em;
-            font-weight: 800;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            margin-top: 10px;
-            margin-bottom: 10px;
-            
-            /* Degradado metálico/dorado refinado */
-            background: linear-gradient(135deg, #5c1111 0%, #8b1e1e 50%, #b84328 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            
-            /* Sombra sutil para dar volumen sin recargar */
-            text-shadow: 2px 3px 6px rgba(0, 0, 0, 0.15);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.6em;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: #721c1c; /* Rojo borgoña orgánico */
+            margin-top: 15px;
+            margin-bottom: 12px;
+            text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
         }
 
-        /* SIMBOLO/ICONO DISTINTIVO PROPIO (Monograma PMC + Clave) */
+        /* ICONO DISTINTIVO: Símbolo minimalista de resonancia musical */
         .simbolo-distintivo {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
+            display: inline-block;
             margin-top: 5px;
             margin-bottom: 25px;
-            cursor: pointer;
-            transition: transform 0.4s ease, filter 0.4s ease;
+            transition: transform 0.4s ease, opacity 0.3s ease;
+            opacity: 0.85;
         }
         .simbolo-distintivo svg {
-            width: 65px;
-            height: 65px;
-            fill: #8c6d3f;
-            filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.15));
+            width: 42px;
+            height: 42px;
+            stroke: #8c6d3f;
         }
         .simbolo-distintivo:hover {
-            transform: scale(1.08);
-            filter: drop-shadow(0px 0px 8px rgba(140, 109, 63, 0.6));
+            opacity: 1;
+            transform: scale(1.05);
         }
 
         /* Imagen sin bordes visibles: disolución gradual hacia el papiro */
@@ -151,11 +141,14 @@
             transform: translateY(-2px);
         }
 
-        /* Adaptación a pantallas móviles */
+        /* Adaptación móvil */
         @media (max-width: 600px) {
             .nombre-artista {
-                font-size: 1.9em;
-                letter-spacing: 2px;
+                font-size: 2em;
+            }
+            .simbolo-distintivo svg {
+                width: 35px;
+                height: 35px;
             }
         }
     </style>
@@ -186,23 +179,17 @@
             </a>
         </nav>
 
-        <!-- NOMBRE DESTACADO -->
+        <!-- NOMBRE EN CAJA MIXTA Y ELEGANTE -->
         <h1 class="nombre-artista">Pablo Moreno Camacho</h1>
 
-        <!-- ÍCONO DISTINTIVO Y EXCLUSIVO -->
+        <!-- ÍCONO DISTINTIVO MINIMALISTA (Onda de resonancia acústica) -->
         <div class="simbolo-distintivo" title="Pablo Moreno Camacho">
-            <svg viewBox="0 0 100 100">
-                <!-- Círculo exterior elegante -->
-                <circle cx="50" cy="50" r="45" fill="none" stroke="#8c6d3f" stroke-width="1.5" stroke-dasharray="4 2"/>
-                <circle cx="50" cy="50" r="41" fill="none" stroke="#8c6d3f" stroke-width="1"/>
-                
-                <!-- Clave de sol con silueta de iniciales -->
-                <path d="M 52 20 C 52 20 45 35 45 42 C 45 48 50 50 52 50 C 56 50 60 46 60 41 C 60 34 50 31 43 36 C 34 42 32 54 37 62 C 42 70 53 72 61 66 C 68 61 70 51 67 43 L 64 34 Q 63 22 53 14 C 48 10 43 14 43 19 C 43 23 46 25 48 23 Q 48 18 52 20 Z M 50 12 L 50 78 C 45 77 40 80 40 85 C 40 89 44 92 49 91 C 54 90 57 85 55 80 L 55 25" fill="none" stroke="#8c6d3f" stroke-width="2.5" stroke-linecap="round"/>
-                
-                <!-- Teclas estilizadas integradas en la base -->
-                <rect x="32" y="47" width="3" height="10" fill="#8c6d3f"/>
-                <rect x="37" y="47" width="3" height="10" fill="#8c6d3f"/>
-                <rect x="62" y="47" width="3" height="10" fill="#8c6d3f"/>
+            <svg viewBox="0 0 60 40" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <!-- Trazo de onda armónica sutil -->
+                <path d="M 5,20 Q 15,5 25,20 T 45,20 T 55,20" />
+                <path d="M 12,20 Q 20,10 28,20 T 44,20" opacity="0.5" stroke-width="1.2" />
+                <!-- Punto de resonancia central -->
+                <circle cx="30" cy="20" r="2" fill="#8c6d3f" />
             </svg>
         </div>
 
@@ -211,7 +198,7 @@
             <source src="sospiro.mp3" type="audio/mpeg">
         </audio>
 
-        <!-- Imagen principal totalmente integrada -->
+        <!-- Imagen principal -->
         <img src="Imagen%20de%20Codex%202%20sept%202026,%2020_16_01.png" alt="Pablo Moreno Camacho" class="foto-principal">
 
         <!-- Redes Sociales y Contacto -->
