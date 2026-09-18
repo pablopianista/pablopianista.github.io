@@ -61,7 +61,7 @@
             font-size: 1.8em;
         }
 
-        /* Imagen integrada orgánicamente con el fondo de papiro */
+        /* Imagen sin bordes visibles: disolución gradual hacia el papiro */
         .foto-principal {
             max-width: 100%;
             height: auto;
@@ -69,13 +69,13 @@
             opacity: 0;
             animation: fadeIn 2.5s ease-in forwards;
 
-            /* Difuminado suave en los 4 bordes para fundir con el fondo */
-            -webkit-mask-image: radial-gradient(circle, black 60%, transparent 100%);
-            mask-image: radial-gradient(circle, black 60%, transparent 100%);
+            /* Máscara de transparencia de centro a bordes para eliminar cualquier corte rectangular */
+            -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 75%);
+            mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 75%);
 
-            /* Fusión cromática con el tono papiro */
+            /* Fusión tonal con el papiro */
             mix-blend-mode: multiply;
-            filter: sepia(0.15) contrast(1.05);
+            filter: sepia(0.12) contrast(1.08);
         }
 
         @keyframes fadeIn {
@@ -84,7 +84,7 @@
                 transform: translateY(10px);
             }
             100% {
-                opacity: 0.92; /* Leve transparencia para integrarse aún mejor */
+                opacity: 0.95;
                 transform: translateY(0);
             }
         }
@@ -155,7 +155,7 @@
             <source src="sospiro.mp3" type="audio/mpeg">
         </audio>
 
-        <!-- Imagen principal con bordes difuminados y modo de fusión -->
+        <!-- Imagen con bordes eliminados mediante degradado elíptico -->
         <img src="Imagen%20de%20Codex%202%20sept%202026,%2020_16_01.png" alt="Pablo Moreno Camacho" class="foto-principal">
 
         <!-- Iconos de Redes Sociales y Contacto a la izquierda -->
