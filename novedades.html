@@ -4,81 +4,92 @@ HTML
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Novedades | Pablo PMC Pianista</title>
+    <title>Novedades | Pablo Moreno Camacho</title>
     <style>
         body {
             background-color: #111;
             color: #fff;
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             text-align: center;
             padding: 20px;
             margin: 0;
             line-height: 1.6;
         }
         .container {
-            max-width: 700px;
+            max-width: 800px;
             margin: 0 auto;
         }
+
+        /* Menú de navegación con botones en forma de cápsula/círculo redondeado */
         nav {
-            margin-bottom: 30px;
-            padding: 10px 0;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 10px;
+            margin-bottom: 35px;
+            padding: 10px;
         }
         nav a {
             color: #d4af37;
             text-decoration: none;
-            font-size: 1.1em;
-            margin: 0 15px;
-            font-weight: bold;
+            font-size: 0.95em;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 10px 24px;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            border-radius: 30px;
+            background-color: rgba(22, 22, 22, 0.8);
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
         }
         nav a:hover {
-            text-decoration: underline;
+            color: #111;
+            background-color: #d4af37;
+            border-color: #d4af37;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+            transform: translateY(-2px);
         }
-        h1 {
-            color: #d4af37;
-            margin-bottom: 30px;
-            font-weight: normal;
-            letter-spacing: 1px;
+
+        /* Títulos en rojo */
+        h1, h2, h3 {
+            color: #d93838;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+            font-size: 1.8em;
         }
-        /* Tarjeta principal elegante */
-        .post {
+
+        /* Contenido de novedades */
+        .novedades-container {
+            text-align: justify;
+            margin-top: 20px;
+        }
+        .novedad-item {
             background-color: #161616;
             border: 1px solid #2a2a2a;
             border-radius: 8px;
-            padding: 30px 20px;
+            padding: 25px;
             margin-bottom: 25px;
-            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
         }
-        /* Fecha sutil */
-        .post-date {
+        .novedad-item h2 {
+            font-size: 1.3em;
+            margin-top: 0;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+        .fecha {
             color: #888;
-            font-size: 0.95em;
-            margin-bottom: 12px;
-            letter-spacing: 0.5px;
-        }
-        /* Título del evento elegante */
-        .event-title {
-            color: #d4af37;
-            font-size: 1.25em;
-            font-weight: bold;
-            margin-bottom: 25px;
-            padding: 0 10px;
-        }
-        /* Botón estilo contorno sobrio */
-        .btn-ticket {
-            display: inline-block;
-            border: 1px solid #d4af37;
-            color: #d4af37;
-            text-decoration: none;
-            padding: 10px 22px;
-            border-radius: 4px;
             font-size: 0.9em;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
+            margin-bottom: 15px;
+            display: block;
         }
-        .btn-ticket:hover {
-            background-color: #d4af37;
-            color: #111;
+        .novedad-item p {
+            color: #ffffff;
+            font-size: 1em;
+            line-height: 1.7;
+            margin: 0;
         }
     </style>
 </head>
@@ -86,31 +97,25 @@ HTML
 
     <div class="container">
 
-        <!-- Menú de navegación -->
+        <!-- Menú de navegación redondeado (Inicio y Novedades) -->
         <nav>
             <a href="index.html">Inicio</a>
-            <a href="cv.html">CV</a>
             <a href="novedades.html">Novedades</a>
         </nav>
 
-        <h1>Novedades</h1>
+        <!-- Título principal en rojo -->
+        <h1>Novedades y Proyectos</h1>
 
-        <article class="post">
-            <!-- Fecha -->
-            <div class="post-date">
-                📅 13 de octubre de 2026
+        <!-- Lista de novedades -->
+        <div class="novedades-container">
+            
+            <div class="novedad-item">
+                <h2>Próximos Conciertos y Actividades</h2>
+                <span class="fecha">Temporada 2026</span>
+                <p>Aquí se irán publicando las fechas de los próximos conciertos, recitales de música de cámara y novedades sobre colaboraciones orquestales y repertorio docente.</p>
             </div>
 
-            <!-- Título del evento -->
-            <div class="event-title">
-                XX Ciclo de Música de Cámara de la OFM
-            </div>
-
-            <!-- Enlace/Botón de Entradas -->
-            <a href="https://tickets.museopicassomalaga.org/es/854-actividades/14093-xx-ciclo-de-musica-de-camara-de-la-ofm/17564203-trio-destenay" target="_blank" class="btn-ticket">
-                Reservar entradas 🎟️
-            </a>
-        </article>
+        </div>
 
     </div>
 
