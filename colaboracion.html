@@ -103,7 +103,7 @@
             transform: translateY(-1px);
         }
 
-        /* Sección estética de vídeos de YouTube */
+        /* Sección de vídeos limpia sin marcos ni textos */
         .videos-seccion {
             margin: 35px 0 45px 0;
         }
@@ -114,24 +114,13 @@
             max-width: 720px;
             margin: 0 auto;
         }
-        .video-card {
-            background-color: rgba(250, 246, 237, 0.6);
-            border: 1px solid rgba(140, 109, 63, 0.4);
-            border-radius: 8px;
-            padding: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .video-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 16px rgba(140, 109, 63, 0.2);
-        }
         .video-wrapper {
             position: relative;
             padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
             height: 0;
             overflow: hidden;
-            border-radius: 4px;
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
         }
         .video-wrapper iframe {
             position: absolute;
@@ -140,13 +129,6 @@
             width: 100%;
             height: 100%;
             border: 0;
-        }
-        .video-caption {
-            font-size: 1em;
-            font-weight: 600;
-            color: #8c6d3f;
-            margin-top: 10px;
-            margin-bottom: 2px;
         }
 
         /* Botón representativo de consulta de disponibilidad */
@@ -197,7 +179,7 @@
             }
             .videos-grid {
                 grid-template-columns: 1fr;
-                gap: 25px;
+                gap: 20px;
             }
         }
     </style></head><body>
@@ -249,20 +231,14 @@
             <li>Ensayos y grabaciones</li>
         </ul>
 
-        <!-- Muestras de Acompañamiento en Vídeo -->
+        <!-- Vídeos de YouTube integrados limpiamente -->
         <div class="videos-seccion">
             <div class="videos-grid">
-                <div class="video-card">
-                    <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/6GNx_GvwtpQ" title="Acompañamiento en directo 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                    <div class="video-caption">Muestra de acompañamiento I</div>
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/6GNx_GvwtpQ" title="Acompañamiento en directo 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
-                <div class="video-card">
-                    <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/lnPf0G1vmws" title="Acompañamiento en directo 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                    <div class="video-caption">Muestra de acompañamiento II</div>
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/lnPf0G1vmws" title="Acompañamiento en directo 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
