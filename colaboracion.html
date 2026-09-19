@@ -22,7 +22,7 @@
             line-height: 1.6;
         }
         .container {
-            max-width: 800px;
+            max-width: 850px;
             margin: 0 auto;
         }
 
@@ -105,32 +105,31 @@
             transform: translateY(-1px);
         }
 
-        /* Sección de vídeos limpia directamente en la página web */
+        /* Sección de vídeos nativos limpia y elegante */
         .videos-seccion {
             margin: 35px 0 45px 0;
         }
         .videos-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            max-width: 720px;
+            gap: 25px;
+            max-width: 820px;
             margin: 0 auto;
         }
-        .video-wrapper {
-            position: relative;
-            padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
-            height: 0;
-            overflow: hidden;
-            border-radius: 6px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-        }
-        .video-wrapper iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
+
+        /* Estilo para los vídeos MP4 nativos */
+        .video-player {
             width: 100%;
-            height: 100%;
-            border: 0;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 6px 18px rgba(43, 34, 25, 0.12);
+            background-color: #000;
+            outline: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .video-player:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 24px rgba(114, 28, 28, 0.18);
         }
 
         /* Botón representativo de consulta de disponibilidad */
@@ -391,15 +390,17 @@
             <li>Ensayos y grabaciones</li>
         </ul>
 
-        <!-- Vídeos integrados directamente en el cuerpo de la página -->
+        <!-- Muestra de vídeos MP4 nativos sin publicidad ni interfaz de YouTube -->
         <div class="videos-seccion">
             <div class="videos-grid">
-                <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/6GNx_GvwtpQ" title="Acompañamiento en directo 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-                <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/lnPf0G1vmws" title="Acompañamiento en directo 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
+                <video class="video-player" controls preload="metadata">
+                    <source src="mozart.mp4" type="video/mp4">
+                    Tu navegador no soporta el reproductor de vídeo.
+                </video>
+                <video class="video-player" controls preload="metadata">
+                    <source src="brahms.mp4" type="video/mp4">
+                    Tu navegador no soporta el reproductor de vídeo.
+                </video>
             </div>
         </div>
 
