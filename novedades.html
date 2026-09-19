@@ -4,24 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Novedades | Pablo Moreno Camacho</title>
+    <!-- Tipografía clásica y elegante -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
         body {
-            background-color: #080808;
-            /* Fondo sobrio de piano de cola en escenario de auditorio */
-            background-image: linear-gradient(rgba(8, 8, 8, 0.75), rgba(8, 8, 8, 0.85)), 
-                              url('https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?q=80&w=1920&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
-            color: #fff;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* Fondo color papiro uniforme */
+            background-color: #f4ecd8;
+            color: #2b2219;
+            font-family: 'Cormorant Garamond', 'Georgia', serif;
             text-align: center;
             padding: 20px;
             margin: 0;
             line-height: 1.6;
             min-height: 100vh;
         }
+
         .container {
             max-width: 800px;
             margin: 0 auto;
@@ -36,89 +36,90 @@
             margin-bottom: 35px;
             padding: 10px;
         }
+
         nav a {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             width: 45px;
             height: 45px;
-            color: #d4af37;
+            color: #8c6d3f;
             text-decoration: none;
-            border: 1px solid rgba(212, 175, 55, 0.4);
+            border: 1px solid #8c6d3f;
             border-radius: 50%;
-            background-color: rgba(18, 18, 18, 0.85);
-            backdrop-filter: blur(6px);
+            background-color: rgba(250, 246, 237, 0.9);
             transition: all 0.3s ease;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
         }
+
         nav a:hover {
-            color: #111;
-            background-color: #d4af37;
-            border-color: #d4af37;
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+            color: #f4ecd8;
+            background-color: #8c6d3f;
+            box-shadow: 0 0 10px rgba(140, 109, 63, 0.4);
             transform: translateY(-2px);
         }
 
-        /* Tarjetas de eventos sobrias (Eventos Pasados) */
+        /* Tarjetas de eventos sobrias (Eventos Pasados) adaptadas al tono papiro */
         .evento {
-            background-color: rgba(18, 18, 18, 0.65);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(212, 175, 55, 0.2);
+            background-color: rgba(255, 253, 248, 0.7);
+            border: 1px solid rgba(140, 109, 63, 0.3);
             border-radius: 8px;
             padding: 25px;
             margin-bottom: 25px;
             text-align: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-            opacity: 0.85;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            opacity: 0.9;
             transition: all 0.3s ease;
         }
 
         .evento:hover {
             opacity: 1;
-            border-color: rgba(212, 175, 55, 0.4);
+            border-color: rgba(140, 109, 63, 0.6);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
         }
 
         /* Recuadro destacado para el evento futuro (13 de Octubre de 2026) */
         .evento.destacado {
-            background: linear-gradient(145deg, rgba(30, 26, 15, 0.92), rgba(18, 18, 18, 0.95));
-            border: 1.5px solid #d4af37;
-            box-shadow: 0 0 25px rgba(212, 175, 55, 0.25), 0 8px 25px rgba(0, 0, 0, 0.8);
+            background-color: #fffdf9;
+            border: 2px solid #721c1c; /* Tono borgoña de contraste */
+            box-shadow: 0 6px 20px rgba(114, 28, 28, 0.12);
             opacity: 1;
         }
 
         .fecha {
-            color: #d4af37;
-            font-size: 0.9em;
+            color: #8c6d3f;
+            font-size: 0.95em;
             margin-bottom: 10px;
             letter-spacing: 1.5px;
-            font-weight: 600;
+            font-weight: 700;
+            text-transform: uppercase;
         }
 
         .evento.destacado .fecha {
-            color: #f3e5ab;
-            font-size: 0.95em;
+            color: #721c1c;
+            font-size: 1em;
         }
 
         .titulo-evento {
-            color: #fff;
-            font-size: 1.25em;
-            font-weight: 500;
+            color: #2b2219;
+            font-size: 1.35em;
+            font-weight: 600;
             margin-bottom: 5px;
         }
 
         .lugar-evento {
-            color: #ccc;
-            font-size: 1.05em;
-            font-weight: 300;
+            color: #554838;
+            font-size: 1.1em;
+            font-weight: 400;
             margin-bottom: 15px;
         }
 
         /* Botón de enlace / reserva / info */
         .btn-reserva {
             display: inline-block;
-            color: #d4af37;
+            color: #8c6d3f;
             text-decoration: none;
-            border: 1px solid #d4af37;
+            border: 1px solid #8c6d3f;
             padding: 8px 18px;
             border-radius: 20px;
             font-size: 0.9em;
@@ -126,23 +127,24 @@
             letter-spacing: 1px;
             transition: all 0.3s ease;
             margin-top: 10px;
-            background-color: rgba(10, 10, 10, 0.7);
+            background-color: rgba(250, 246, 237, 0.8);
         }
 
         .btn-reserva:hover {
-            background-color: #d4af37;
-            color: #111;
+            background-color: #8c6d3f;
+            color: #f4ecd8;
         }
 
         .evento.destacado .btn-reserva {
-            background-color: #d4af37;
-            color: #111;
+            background-color: #721c1c;
+            color: #ffffff;
+            border-color: #721c1c;
         }
 
         .evento.destacado .btn-reserva:hover {
-            background-color: #f3e5ab;
-            border-color: #f3e5ab;
-            box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+            background-color: #8b2323;
+            border-color: #8b2323;
+            box-shadow: 0 2px 10px rgba(114, 28, 28, 0.3);
         }
     </style>
 </head>
@@ -159,6 +161,13 @@
                     <path d="m8 3.293 4.712 4.712A.5.5 0 0 1 12.5 9h-9a.5.5 0 0 1-.354-.854L8 3.293Z"/>
                 </svg>
             </a>
+            <!-- Icono de Biografía -->
+            <a href="bio.html" title="Biografía">
+                <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                </svg>
+            </a>
             <!-- Icono de Novedades (Documento) -->
             <a href="novedades.html" title="Novedades">
                 <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
@@ -168,7 +177,7 @@
             </a>
         </nav>
 
-        <!-- Evento 1 (Próximo / Destacado en dorado sobrio) -->
+        <!-- Evento 1 (Próximo / Destacado) -->
         <div class="evento destacado">
             <div class="fecha">13 de octubre de 2026</div>
             <div class="titulo-evento">XX Ciclo de Música de Cámara de la OFM</div>
