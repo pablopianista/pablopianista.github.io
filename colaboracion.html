@@ -418,6 +418,12 @@
                     </select>
                 </div>
 
+                <!-- Campo de Instrumento/s añadido -->
+                <div class="form-group">
+                    <label for="instrumento">Instrumento/s *</label>
+                    <input type="text" id="instrumento" required placeholder="Indica tu instrumento (ej. Violín, Canto, Flauta...)">
+                </div>
+
                 <div class="form-group">
                     <label for="fecha">Selecciona la Fecha preferida *</label>
                     <input type="date" id="fecha" required>
@@ -505,6 +511,7 @@
             const nombre = document.getElementById('nombre').value;
             const email = document.getElementById('email').value;
             const servicio = document.getElementById('servicio').value;
+            const instrumento = document.getElementById('instrumento').value;
             const fecha = document.getElementById('fecha').value;
             const mensaje = document.getElementById('mensaje').value;
 
@@ -513,6 +520,7 @@
                 "Nombre: " + nombre + "\n" +
                 "Email: " + email + "\n" +
                 "Servicio: " + servicio + "\n" +
+                "Instrumento/s: " + instrumento + "\n" +
                 "Fecha preferida: " + fecha + "\n" +
                 "Horario seleccionado: " + slotSeleccionado + "\n\n" +
                 "Detalles / Repertorio:\n" + mensaje
