@@ -11,9 +11,10 @@
 
     <style>
         body {
-            /* Fondo con papiroimage.jpeg integrado */
-            background-color: #f4ecd8; /* Color de respaldo si tarda en cargar la imagen */
-            background-image: url('papiroimage.jpeg');
+            /* Fondo base tono papiro */
+            background-color: #f4ecd8;
+            /* Se funde la imagen con el color papiro al 85% de opacidad para diluirla */
+            background-image: linear-gradient(rgba(244, 236, 216, 0.85), rgba(244, 236, 216, 0.85)), url('papiroimage.jpeg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -32,7 +33,7 @@
             margin: 0 auto;
         }
 
-        /* Menú de navegación elegante con botones circulares e iconos */
+        /* Menú de navegación circular con iconos */
         nav {
             display: flex;
             justify-content: center;
@@ -52,7 +53,7 @@
             text-decoration: none;
             border: 1px solid #8c6d3f;
             border-radius: 50%;
-            background-color: rgba(250, 246, 237, 0.85);
+            background-color: rgba(250, 246, 237, 0.9);
             backdrop-filter: blur(4px);
             transition: all 0.3s ease;
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
@@ -67,14 +68,14 @@
 
         /* Tarjetas de eventos sobrias */
         .evento {
-            background-color: rgba(255, 253, 248, 0.75);
+            background-color: rgba(255, 253, 248, 0.7);
             backdrop-filter: blur(4px);
             border: 1px solid rgba(140, 109, 63, 0.3);
             border-radius: 8px;
             padding: 25px;
             margin-bottom: 25px;
             text-align: center;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
             opacity: 0.95;
             transition: all 0.3s ease;
         }
@@ -87,10 +88,10 @@
 
         /* Recuadro destacado para el evento futuro */
         .evento.destacado {
-            background-color: rgba(255, 253, 249, 0.9);
+            background-color: rgba(255, 253, 249, 0.88);
             backdrop-filter: blur(4px);
             border: 2px solid #721c1c; /* Tono borgoña de contraste */
-            box-shadow: 0 6px 20px rgba(114, 28, 28, 0.12);
+            box-shadow: 0 6px 20px rgba(114, 28, 28, 0.1);
             opacity: 1;
         }
 
