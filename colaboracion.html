@@ -286,10 +286,10 @@
             background-color: #721c1c;
         }
 
-        /* Grid para seleccionar el hueco de horario (Time Slot) */
+        /* Grid para seleccionar múltiples franjas horarias */
         .slots-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 10px;
             margin-top: 8px;
         }
@@ -496,7 +496,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label>Franja Horaria *</label>
+                    <label>Franja Horaria (Puedes elegir varias) *</label>
                     <div class="slots-grid">
                         <button type="button" class="slot-btn" data-time="09:00 - 11:00">09:00 - 11:00</button>
                         <button type="button" class="slot-btn" data-time="11:30 - 13:30">11:30 - 13:30</button>
@@ -537,7 +537,6 @@
         const btnAbrir = document.getElementById('btn-abrir-modal');
         const btnCerrar = document.getElementById('btn-cerrar-modal');
         const slots = document.querySelectorAll('.slot-btn');
-        let slotSeleccionado = '';
 
         btnAbrir.onclick = function() {
             modal.style.display = "flex";
@@ -576,12 +575,11 @@
             }
         };
 
-        // Selección de Time Slots (Franja Horaria)
+        // Selección MÚLTIPLE de Time Slots (Franjas Horarias)
         slots.forEach(slot => {
             slot.addEventListener('click', function() {
-                slots.forEach(s => s.classList.remove('selected'));
-                this.classList.add('selected');
-                slotSeleccionado = this.getAttribute('data-time');
+                // Alternar la clase 'selected' para permitir seleccionar varias
+                this.classList.toggle('selected');
             });
         });
 
@@ -589,8 +587,12 @@
         document.getElementById('form-solicitud').onsubmit = function(e) {
             e.preventDefault();
             
-            if (!slotSeleccionado) {
-                alert("Por favor, selecciona una franja horaria.");
+            // Obtener todas las franjas horarias seleccionadas
+            const slotsSeleccionados = Array.from(document.querySelectorAll('.slot-btn.selected'))
+                                             .map(btn => btn.getAttribute('data-time'));
+
+            if (slotsSeleccionados.length === 0) {
+                alert("Por favor, selecciona al menos una franja horaria.");
                 return;
             }
 
@@ -610,7 +612,7 @@
                 "Servicio: " + servicio + "\n" +
                 "Instrumento/s: " + instrumento + "\n" +
                 "Fecha/s solicitadas: " + fechas + "\n" +
-                "Franja horaria: " + slotSeleccionado + "\n\n" +
+                "Franja/s horaria/s: " + slotsSeleccionados.join(", ") + "\n\n" +
                 "Repertorio:\n" + repertorio
             );
 
@@ -620,5 +622,3 @@
     </script>
 </body>
 </html>
-       
-
