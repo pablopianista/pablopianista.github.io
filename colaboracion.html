@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="es"><head>
+<!DOCTYPE html>
+<html lang="es">
+<head>
     <meta name="google-site-verification" content="c_ntxYkipGhuE2wmkr4KOI9b5SbYPXAeyXWRVpHIqeg" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -207,15 +209,9 @@
             font-size: 1.8em;
             color: #721c1c;
             margin-top: 0;
-            margin-bottom: 5px;
+            margin-bottom: 20px;
             text-align: center;
             font-weight: 700;
-        }
-        .modal-subtitle {
-            text-align: center;
-            color: #554838;
-            font-size: 1.05em;
-            margin-bottom: 25px;
         }
         .form-group {
             margin-bottom: 18px;
@@ -341,7 +337,9 @@
                 grid-template-columns: repeat(2, 1fr);
             }
         }
-    </style></head><body>
+    </style>
+</head>
+<body>
 
     <div class="container">
 
@@ -420,12 +418,17 @@
         <div class="modal-content">
             <span class="modal-close" id="btn-cerrar-modal">&times;</span>
             <h2 class="modal-title">Solicitud de Reserva</h2>
-            <p class="modal-subtitle">Colaboraciones artísticas y ensayos con acompañamiento</p>
 
             <form id="form-solicitud">
                 <div class="form-group">
                     <label for="nombre">Nombre y Apellidos *</label>
                     <input type="text" id="nombre" required placeholder="Tu nombre completo">
+                </div>
+
+                <!-- Campo Mensaje movido justo debajo de Nombre y Apellidos -->
+                <div class="form-group">
+                    <label for="mensaje">Mensaje</label>
+                    <textarea id="mensaje" rows="3" placeholder="Escribe aquí tu mensaje o detalles adicionales..."></textarea>
                 </div>
 
                 <div class="form-group">
@@ -449,7 +452,7 @@
                     <input type="text" id="instrumento" required placeholder="Indica tu instrumento (ej. Violín, Canto, Flauta...)">
                 </div>
 
-                <!-- Campo Fecha/s modificado para permitir múltiples fechas/días -->
+                <!-- Campo Fecha/s para múltiples fechas/días -->
                 <div class="form-group">
                     <label for="fechas">Fecha/s *</label>
                     <div class="multi-date-container">
@@ -463,7 +466,6 @@
                     </div>
                 </div>
 
-                <!-- Texto 'Franja Horaria' actualizado -->
                 <div class="form-group">
                     <label>Franja Horaria *</label>
                     <div class="slots-grid">
@@ -474,16 +476,9 @@
                     </div>
                 </div>
 
-                <!-- Nuevo campo 'Repertorio' -->
                 <div class="form-group">
                     <label for="repertorio">Repertorio</label>
                     <textarea id="repertorio" rows="3" placeholder="Indica el repertorio a trabajar u obras seleccionadas..."></textarea>
-                </div>
-
-                <!-- Texto 'Mensaje' actualizado -->
-                <div class="form-group">
-                    <label for="mensaje">Mensaje</label>
-                    <textarea id="mensaje" rows="3" placeholder="Escribe aquí tu mensaje o detalles adicionales..."></textarea>
                 </div>
 
                 <button type="submit" class="btn-enviar-reserva">Enviar Solicitud</button>
@@ -540,7 +535,6 @@
 
         hiddenDatePicker.onchange = function() {
             if (this.value) {
-                // Formatear la fecha a DD/MM/AAAA
                 const partes = this.value.split('-');
                 const fechaFormateada = `${partes[2]}/${partes[1]}/${partes[0]}`;
                 
@@ -549,7 +543,7 @@
                 } else {
                     fechasInput.value += `, ${fechaFormateada}`;
                 }
-                this.value = ''; // Resetear el picker para poder seleccionar de nuevo la misma si se desea
+                this.value = '';
             }
         };
 
@@ -572,26 +566,28 @@
             }
 
             const nombre = document.getElementById('nombre').value;
+            const mensaje = document.getElementById('mensaje').value;
             const email = document.getElementById('email').value;
             const servicio = document.getElementById('servicio').value;
             const instrumento = document.getElementById('instrumento').value;
             const fechas = document.getElementById('fechas').value;
             const repertorio = document.getElementById('repertorio').value;
-            const mensaje = document.getElementById('mensaje').value;
 
             const asunto = encodeURIComponent("Consulta de disponibilidad - " + servicio);
             const cuerpo = encodeURIComponent(
                 "Nombre: " + nombre + "\n" +
+                "Mensaje:\n" + mensaje + "\n\n" +
                 "Email: " + email + "\n" +
                 "Servicio: " + servicio + "\n" +
                 "Instrumento/s: " + instrumento + "\n" +
                 "Fecha/s solicitadas: " + fechas + "\n" +
                 "Franja horaria: " + slotSeleccionado + "\n\n" +
-                "Repertorio:\n" + repertorio + "\n\n" +
-                "Mensaje:\n" + mensaje
+                "Repertorio:\n" + repertorio
             );
 
             window.location.href = `mailto:pablopianista1991@yahoo.com?subject=${asunto}&body=${cuerpo}`;
             modal.style.display = "none";
         }
-    </script></body></html>
+    </script>
+</body>
+</html>
