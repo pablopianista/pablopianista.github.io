@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
+<!DOCTYPE html><html lang="es"><head>
+    <meta name="google-site-verification" content="c_ntxYkipGhuE2wmkr4KOI9b5SbYPXAeyXWRVpHIqeg" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Colaboración Artística - Pablo Moreno Camacho</title>
-    <!-- Tipografía clásica -->
+    <title>Pablo Moreno Camacho</title>
+    <!-- Tipografía clásica, fina y distinguida -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
@@ -21,17 +20,17 @@
             line-height: 1.6;
         }
         .container {
-            max-width: 900px;
+            max-width: 800px;
             margin: 0 auto;
         }
 
-        /* Menú de navegación */
+        /* Menú de navegación con botones circulares e iconos en el margen superior */
         nav {
             display: flex;
             justify-content: center;
             gap: 20px;
-            margin-top: 10px;
-            margin-bottom: 35px;
+            margin-top: 15px;
+            margin-bottom: 25px;
             padding: 10px;
             flex-wrap: wrap;
         }
@@ -39,18 +38,16 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 0 18px;
-            height: 45px;
+            width: 48px;
+            height: 48px;
             color: #8c6d3f;
             text-decoration: none;
-            font-size: 1.1em;
-            font-weight: 600;
-            letter-spacing: 0.5px;
             border: 1px solid #8c6d3f;
-            border-radius: 25px;
+            border-radius: 50%; /* Círculos perfectos */
             background-color: rgba(250, 246, 237, 0.9);
             transition: all 0.3s ease;
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+            position: relative;
         }
         nav a:hover {
             color: #f4ecd8;
@@ -59,166 +56,144 @@
             transform: translateY(-2px);
         }
 
-        /* Secciones con texto y vídeo lateral */
-        .seccion-colaboracion {
-            display: flex;
-            align-items: center;
-            gap: 25px;
-            margin-bottom: 45px;
-            text-align: left;
-            background-color: rgba(250, 246, 237, 0.6);
-            padding: 20px;
-            border-radius: 12px;
-            border: 1px solid rgba(140, 109, 63, 0.2);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
-        }
-
-        /* Alternar orden en la segunda sección (vídeo a la derecha) */
-        .seccion-colaboracion.inversa {
-            flex-direction: row-reverse;
-        }
-
-        .texto-colaboracion {
-            flex: 1;
-            font-size: 1.25em;
-            color: #2b2219;
-            margin: 0;
-            line-height: 1.7;
-        }
-
-        /* Contenedor del vídeo pequeño */
-        .video-contenedor {
-            flex: 0 0 300px; /* Ancho fijo y compacto para el vídeo */
-            max-width: 300px;
-            aspect-ratio: 16 / 9;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            border: 1px solid #8c6d3f;
-        }
-
-        .video-contenedor iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        /* Redes Sociales e Iconos alineados a la izquierda con el 4º icono */
-        .redes-sociales {
-            display: flex;
-            justify-content: flex-start;
-            gap: 20px;
-            margin-top: 40px;
-            margin-bottom: 30px;
-        }
-        .redes-sociales a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 45px;
-            height: 45px;
-            color: #8c6d3f;
-            text-decoration: none;
-            border: 1px solid #8c6d3f;
-            border-radius: 50%;
-            background-color: rgba(250, 246, 237, 0.9);
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-        }
-        .redes-sociales a:hover {
+        /* Etiqueta flotante explicativa al pasar el cursor por cada círculo */
+        nav a::after {
+            content: attr(title);
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #2b2219;
             color: #f4ecd8;
-            background-color: #8c6d3f;
-            box-shadow: 0 0 10px rgba(140, 109, 63, 0.4);
-            transform: translateY(-2px);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.75em;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s ease;
+            font-family: sans-serif;
+        }
+        nav a:hover::after {
+            opacity: 1;
         }
 
-        /* Adaptación para pantallas pequeñas (móviles) */
-        @media (max-width: 768px) {
-            .seccion-colaboracion,
-            .seccion-colaboracion.inversa {
-                flex-direction: column;
-                text-align: center;
+        /* NOMBRE PRINCIPAL */
+        .nombre-artista {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.6em;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: #721c1c; /* Rojo borgoña orgánico */
+            margin-top: 15px;
+            margin-bottom: 25px;
+            text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Imagen sin bordes visibles y con tamaño reducido */
+        .foto-principal {
+            max-width: 70%; /* Tamaño ajustado */
+            height: auto;
+            margin-bottom: 25px;
+            opacity: 0;
+            animation: fadeIn 2.5s ease-in forwards;
+
+            -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 75%);
+            mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 75%);
+
+            mix-blend-mode: multiply;
+            filter: sepia(0.12) contrast(1.08);
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(10px);
             }
-            .video-contenedor {
-                flex: 1 1 100%;
-                width: 100%;
-                max-width: 100%;
+            100% {
+                opacity: 0.95;
+                transform: translateY(0);
+            }
+        }
+
+        /* Adaptación móvil */
+        @media (max-width: 600px) {
+            .nombre-artista {
+                font-size: 2em;
+            }
+            .foto-principal {
+                max-width: 85%;
             }
             nav {
-                gap: 10px;
+                gap: 12px;
             }
             nav a {
-                padding: 0 12px;
-                font-size: 0.95em;
+                width: 42px;
+                height: 42px;
             }
         }
-    </style>
-</head>
-<body>
+    </style></head><body>
 
     <div class="container">
 
-        <!-- Menú de navegación -->
+        <!-- Menú de navegación superior con CÍRCULOS Y SÍMBOLOS -->
         <nav>
-            <a href="index.html">Inicio</a>
-            <a href="bio.html">Bio</a>
-            <a href="novedades.html">Novedades</a>
-            <a href="colaboracion.html">Colaboración artística</a>
+            <!-- Inicio: Icono Casa -->
+            <a href="index.html" title="Inicio">
+                <svg width="22" height="22" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5ZM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5 5 5Z"/>
+                </svg>
+            </a>
+
+            <!-- Bio: Icono Pluma / Libro -->
+            <a href="bio.html" title="Bio">
+                <svg width="22" height="22" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.823c-.918-.35-2.107-.691-3.287-.81-1.093-.11-2.278-.037-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.334-.896 3.739-1.038 1.15-.116 2.222.012 2.923.456a.5.5 0 0 0 .543 0c.701-.444 1.773-.572 2.923-.456 1.405.142 2.857.638 3.739 1.038A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+                </svg>
+            </a>
+
+            <!-- Novedades: Icono Periódico / Noticias -->
+            <a href="novedades.html" title="Novedades">
+                <svg width="22" height="22" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M0 2.5A1.5 1.5 0 0 1 1.5 1h11A1.5 1.5 0 0 1 14 2.5v10.528c0 .3-.05.654-.238.972h.738a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 1 1 0v9a1.5 1.5 0 0 1-1.5 1.5H1.497A1.497 1.497 0 0 1 0 13.5v-11zM12 14c.37 0 .654-.211.853-.441.092-.106.147-.229.147-.359V2.5a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0-.5.5v11c0 .278.223.5.497.5H12z"/>
+                    <path d="M2 3h10v2H2V3zm0 3h4v5H2V6zm5 0h5v1H7V6zm0 2h5v1H7V8zm0 2h5v1H7v-1z"/>
+                </svg>
+            </a>
+
+            <!-- Colaboración Artística: Icono Pincel y Notas / Símbolo de Arte -->
+            <a href="colaboracion.html" title="Colaboración artística">
+                <svg width="22" height="22" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm1.5 3a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zm-5 2a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zm-1 5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zm7.5.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z"/>
+                </svg>
+            </a>
         </nav>
 
-        <!-- PRIMERA SECCIÓN: Vídeo a la izquierda + Texto -->
-        <div class="seccion-colaboracion">
-            <div class="video-contenedor">
-                <iframe src="https://www.youtube.com/embed/S43EaX2x39c" title="Colaboración Artística 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            <p class="texto-colaboracion">
-                Aquí va la información o descripción del primer proyecto de colaboración artística, destacando el trabajo conjunto, los matices musicales y el diálogo interpretativo desarrollado.
-            </p>
-        </div>
+        <!-- NOMBRE DESTACADO -->
+        <h1 class="nombre-artista">Pablo Moreno Camacho</h1>
 
-        <!-- SEGUNDA SECCIÓN: Texto + Vídeo a la derecha -->
-        <div class="seccion-colaboracion inversa">
-            <div class="video-contenedor">
-                <iframe src="https://www.youtube.com/embed/38NOf2y2Gss" title="Colaboración Artística 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            <p class="texto-colaboracion">
-                Aquí va la descripción del segundo proyecto de colaboración artística, detallando las influencias musicales, la estética compartida y los aspectos clave de esta presentación.
-            </p>
-        </div>
+        <!-- Audio de fondo -->
+        <audio id="audio-fondo" loop preload="auto">
+            <source src="sospiro.mp3" type="audio/mpeg">
+        </audio>
 
-        <!-- Redes Sociales y Contacto (Incluye el 4º botón de Colaboración Artística) -->
-        <div class="redes-sociales">
-            <a href="https://www.youtube.com/@pablomorenocamachopiano" target="_blank" rel="noopener noreferrer" title="YouTube">
-                <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-                    <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022 0.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004c-.702-.027-1.402-.066-2.003-.13a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003c.83-.028 1.848-.035 2.906-.035zM6.1 5.25v5.5l4.8-2.75L6.1 5.25z"/>
-                </svg>
-            </a>
-            <a href="https://www.instagram.com/pablomorenocamacho/" target="_blank" rel="noopener noreferrer" title="Instagram">
-                <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-                    <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
-                </svg>
-            </a>
-            <a href="https://www.facebook.com/pablo.morenocamacho.1/" target="_blank" rel="noopener noreferrer" title="Facebook">
-                <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-                    <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
-                </svg>
-            </a>
-            <a href="mailto:pablopianista1991@yahoo.com" title="Correo electrónico">
-                <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-                    <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
-                </svg>
-            </a>
-            <!-- CUARTO BOTÓN / ICONO: Colaboración Artística -->
-            <a href="colaboracion.html" title="Colaboración artística">
-                <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-                    <path d="M8 0a8 8 0 1 0 8 8A8 8 0 0 0 8 0zm1.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zm-4 1.5a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0zm-1.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zm5.5 2.5a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0z"/>
-                </svg>
-            </a>
-        </div>
+        <!-- Imagen principal -->
+        <img src="Imagen%20de%20Codex%202%20sept%202026,%2020_16_01.png" alt="Pablo Moreno Camacho" class="foto-principal">
 
     </div>
 
-</body>
-</html>
-            
-           
+    <!-- Script de audio -->
+    <script>
+        const audio = document.getElementById('audio-fondo');
+
+        function reproducir() {
+            if (audio.paused) {
+                audio.play().catch(function(e) {
+                    console.log("Esperando interacción del usuario...");
+                });
+            }
+        }
+
+        window.addEventListener('load', reproducir);
+        document.addEventListener('click', reproducir, { once: true });
+        document.addEventListener('touchstart', reproducir, { once: true });
+    </script></body></html>
