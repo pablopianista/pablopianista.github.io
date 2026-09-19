@@ -8,7 +8,7 @@
     <!-- Tipografía clásica, fina y distinguida -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     
     <style>
         body {
@@ -22,7 +22,7 @@
             line-height: 1.6;
         }
         .container {
-            max-width: 800px;
+            max-width: 850px;
             margin: 0 auto;
         }
 
@@ -105,24 +105,66 @@
             transform: translateY(-1px);
         }
 
-        /* Sección de vídeos limpia sin marcos ni textos */
+        /* --- DISEÑO ATRACTIVO Y ARTÍSTICO DE VÍDEOS --- */
         .videos-seccion {
-            margin: 35px 0 45px 0;
+            margin: 45px 0 55px 0;
+            position: relative;
         }
         .videos-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            max-width: 720px;
+            gap: 30px;
+            max-width: 800px;
             margin: 0 auto;
         }
+
+        /* Tarjeta contenedora de cada vídeo */
+        .video-card {
+            background-color: #fdfaf3;
+            border: 1px solid rgba(140, 109, 63, 0.4);
+            border-radius: 12px;
+            padding: 12px;
+            box-shadow: 0 10px 25px rgba(43, 34, 25, 0.08);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Efecto halo de luz superior (Spotlight) */
+        .video-card::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 100px;
+            background: radial-gradient(ellipse at center, rgba(140, 109, 63, 0.25) 0%, rgba(244, 236, 216, 0) 70%);
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+
+        .video-card:hover {
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0 16px 35px rgba(114, 28, 28, 0.15);
+            border-color: #8c6d3f;
+        }
+
+        /* Marco dorado interior */
+        .video-frame-inner {
+            border: 1px solid rgba(140, 109, 63, 0.25);
+            border-radius: 8px;
+            padding: 4px;
+            background: #2b2219;
+            position: relative;
+        }
+
         .video-wrapper {
             position: relative;
-            padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
+            padding-bottom: 56.25%; /* 16:9 */
             height: 0;
             overflow: hidden;
-            border-radius: 6px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            border-radius: 5px;
         }
         .video-wrapper iframe {
             position: absolute;
@@ -132,6 +174,20 @@
             height: 100%;
             border: 0;
         }
+
+        /* Detalle ornamental en las esquinas */
+        .corner-decoration {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border-color: #8c6d3f;
+            border-style: solid;
+            pointer-events: none;
+        }
+        .corner-tl { top: 6px; left: 6px; border-width: 1.5px 0 0 1.5px; }
+        .corner-tr { top: 6px; right: 6px; border-width: 1.5px 1.5px 0 0; }
+        .corner-bl { bottom: 6px; left: 6px; border-width: 0 0 1.5px 1.5px; }
+        .corner-br { bottom: 6px; right: 6px; border-width: 0 1.5px 1.5px 0; }
 
         /* Botón representativo de consulta de disponibilidad */
         .btn-consultar {
@@ -331,7 +387,7 @@
             }
             .videos-grid {
                 grid-template-columns: 1fr;
-                gap: 20px;
+                gap: 25px;
             }
             .slots-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -391,15 +447,34 @@
             <li>Ensayos y grabaciones</li>
         </ul>
 
-        <!-- Vídeos de YouTube integrados limpiamente -->
+        <!-- Vídeos presentados con estilo tarjeta de galería/escenario -->
         <div class="videos-seccion">
             <div class="videos-grid">
-                <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/6GNx_GvwtpQ" title="Acompañamiento en directo 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                
+                <div class="video-card">
+                    <div class="corner-decoration corner-tl"></div>
+                    <div class="corner-decoration corner-tr"></div>
+                    <div class="corner-decoration corner-bl"></div>
+                    <div class="corner-decoration corner-br"></div>
+                    <div class="video-frame-inner">
+                        <div class="video-wrapper">
+                            <iframe src="https://www.youtube.com/embed/6GNx_GvwtpQ" title="Acompañamiento en directo 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
                 </div>
-                <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/lnPf0G1vmws" title="Acompañamiento en directo 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                <div class="video-card">
+                    <div class="corner-decoration corner-tl"></div>
+                    <div class="corner-decoration corner-tr"></div>
+                    <div class="corner-decoration corner-bl"></div>
+                    <div class="corner-decoration corner-br"></div>
+                    <div class="video-frame-inner">
+                        <div class="video-wrapper">
+                            <iframe src="https://www.youtube.com/embed/lnPf0G1vmws" title="Acompañamiento en directo 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </div>
 
