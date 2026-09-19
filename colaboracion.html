@@ -243,6 +243,32 @@
             border-color: #721c1c;
             box-shadow: 0 0 5px rgba(114, 28, 28, 0.3);
         }
+
+        /* Selector de múltiples fechas con picker */
+        .multi-date-container {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+        .multi-date-container input[type="text"] {
+            flex-grow: 1;
+        }
+        .btn-picker {
+            padding: 9px 12px;
+            background-color: #8c6d3f;
+            color: #f4ecd8;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s ease;
+        }
+        .btn-picker:hover {
+            background-color: #721c1c;
+        }
+
         /* Grid para seleccionar el hueco de horario (Time Slot) */
         .slots-grid {
             display: grid;
@@ -418,19 +444,28 @@
                     </select>
                 </div>
 
-                <!-- Campo de Instrumento/s añadido -->
                 <div class="form-group">
                     <label for="instrumento">Instrumento/s *</label>
                     <input type="text" id="instrumento" required placeholder="Indica tu instrumento (ej. Violín, Canto, Flauta...)">
                 </div>
 
+                <!-- Campo Fecha/s modificado para permitir múltiples fechas/días -->
                 <div class="form-group">
-                    <label for="fecha">Selecciona la Fecha preferida *</label>
-                    <input type="date" id="fecha" required>
+                    <label for="fechas">Fecha/s *</label>
+                    <div class="multi-date-container">
+                        <input type="text" id="fechas" required placeholder="Selecciona o escribe fechas (ej. 12/10, 15/10...)">
+                        <button type="button" class="btn-picker" id="btn-calendar-trigger" title="Elegir fecha">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+                            </svg>
+                        </button>
+                        <input type="date" id="hidden-date-picker" style="display:none;">
+                    </div>
                 </div>
 
+                <!-- Texto 'Franja Horaria' actualizado -->
                 <div class="form-group">
-                    <label>Selecciona un franja horaria disponible (Time Slot) *</label>
+                    <label>Franja Horaria *</label>
                     <div class="slots-grid">
                         <button type="button" class="slot-btn" data-time="09:00 - 11:00">09:00 - 11:00</button>
                         <button type="button" class="slot-btn" data-time="11:30 - 13:30">11:30 - 13:30</button>
@@ -439,9 +474,16 @@
                     </div>
                 </div>
 
+                <!-- Nuevo campo 'Repertorio' -->
                 <div class="form-group">
-                    <label for="mensaje">Comentarios o Repertorio a trabajar</label>
-                    <textarea id="mensaje" rows="3" placeholder="Indica el repertorio o detalles relevantes..."></textarea>
+                    <label for="repertorio">Repertorio</label>
+                    <textarea id="repertorio" rows="3" placeholder="Indica el repertorio a trabajar u obras seleccionadas..."></textarea>
+                </div>
+
+                <!-- Texto 'Mensaje' actualizado -->
+                <div class="form-group">
+                    <label for="mensaje">Mensaje</label>
+                    <textarea id="mensaje" rows="3" placeholder="Escribe aquí tu mensaje o detalles adicionales..."></textarea>
                 </div>
 
                 <button type="submit" class="btn-enviar-reserva">Enviar Solicitud</button>
@@ -487,7 +529,31 @@
             }
         }
 
-        // Selección de Time Slots (Huecos de la agenda)
+        // Selección múltiple de fechas a través del icono de calendario
+        const hiddenDatePicker = document.getElementById('hidden-date-picker');
+        const fechasInput = document.getElementById('fechas');
+        const btnCalendarTrigger = document.getElementById('btn-calendar-trigger');
+
+        btnCalendarTrigger.onclick = function() {
+            hiddenDatePicker.showPicker();
+        };
+
+        hiddenDatePicker.onchange = function() {
+            if (this.value) {
+                // Formatear la fecha a DD/MM/AAAA
+                const partes = this.value.split('-');
+                const fechaFormateada = `${partes[2]}/${partes[1]}/${partes[0]}`;
+                
+                if (fechasInput.value.trim() === '') {
+                    fechasInput.value = fechaFormateada;
+                } else {
+                    fechasInput.value += `, ${fechaFormateada}`;
+                }
+                this.value = ''; // Resetear el picker para poder seleccionar de nuevo la misma si se desea
+            }
+        };
+
+        // Selección de Time Slots (Franja Horaria)
         slots.forEach(slot => {
             slot.addEventListener('click', function() {
                 slots.forEach(s => s.classList.remove('selected'));
@@ -496,15 +562,12 @@
             });
         });
 
-        // Configurar la fecha mínima (hoy)
-        document.getElementById('fecha').min = new Date().toISOString().split('T')[0];
-
         // Envío del formulario formateado a correo electrónico
         document.getElementById('form-solicitud').onsubmit = function(e) {
             e.preventDefault();
             
             if (!slotSeleccionado) {
-                alert("Por favor, selecciona una franja horaria (Time Slot).");
+                alert("Por favor, selecciona una franja horaria.");
                 return;
             }
 
@@ -512,7 +575,8 @@
             const email = document.getElementById('email').value;
             const servicio = document.getElementById('servicio').value;
             const instrumento = document.getElementById('instrumento').value;
-            const fecha = document.getElementById('fecha').value;
+            const fechas = document.getElementById('fechas').value;
+            const repertorio = document.getElementById('repertorio').value;
             const mensaje = document.getElementById('mensaje').value;
 
             const asunto = encodeURIComponent("Consulta de disponibilidad - " + servicio);
@@ -521,9 +585,10 @@
                 "Email: " + email + "\n" +
                 "Servicio: " + servicio + "\n" +
                 "Instrumento/s: " + instrumento + "\n" +
-                "Fecha preferida: " + fecha + "\n" +
-                "Horario seleccionado: " + slotSeleccionado + "\n\n" +
-                "Detalles / Repertorio:\n" + mensaje
+                "Fecha/s solicitadas: " + fechas + "\n" +
+                "Franja horaria: " + slotSeleccionado + "\n\n" +
+                "Repertorio:\n" + repertorio + "\n\n" +
+                "Mensaje:\n" + mensaje
             );
 
             window.location.href = `mailto:pablopianista1991@yahoo.com?subject=${asunto}&body=${cuerpo}`;
