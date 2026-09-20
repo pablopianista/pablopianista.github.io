@@ -126,7 +126,7 @@
             transform: translateY(-2px);
         }
 
-        /* Sección de vídeos difuminados situados debajo de los iconos */
+        /* Sección de vídeos sin recuadros e integrados con el fondo */
         .seccion-videos {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -137,22 +137,26 @@
         .video-player {
             width: 100%;
             height: auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(43, 34, 25, 0.1);
-            background-color: #000;
+            background-color: transparent; /* Eliminado el marco negro */
+            border: none;
             outline: none;
-            /* Filtro difuminado suave para mantener el foco en la foto principal */
-            filter: blur(1.5px) sepia(0.1);
-            opacity: 0.72;
+            
+            /* Difuminado suave de los bordes del vídeo hacia el papiro */
+            -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 98%);
+            mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 98%);
+            
+            /* Fusión con el tono cálido del fondo y desenfoque */
+            mix-blend-mode: multiply;
+            filter: blur(1.2px) sepia(0.12);
+            opacity: 0.85;
             transition: all 0.4s ease;
         }
-        /* Al interactuar o pasar el ratón, el vídeo cobra vida limpia */
+        /* Al enfocar o pasar el ratón, el vídeo gana nitidez pero mantiene el difuminado exterior */
         .video-player:hover,
         .video-player:focus {
             filter: blur(0px) sepia(0);
             opacity: 1;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(114, 28, 28, 0.2);
+            transform: scale(1.02);
         }
 
         /* Adaptación móvil */
@@ -223,7 +227,7 @@
             </a>
         </div>
 
-        <!-- Sección de vídeos sutilmente difuminados debajo de las redes sociales -->
+        <!-- Sección de vídeos integrados con el fondo -->
         <div class="seccion-videos">
             <video class="video-player" controls preload="metadata">
                 <source src="debussy.mp4" type="video/mp4">
