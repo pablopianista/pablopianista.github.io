@@ -105,20 +105,23 @@
             padding: 10px;
         }
 
-        .bandera-icon {
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            border: 1px solid #8c6d3f;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
-            object-fit: cover;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        .bandera-link {
+            display: inline-block;
+            text-decoration: none;
+            transition: transform 0.2s ease, opacity 0.2s ease;
         }
 
-        .bandera-icon:hover {
+        .bandera-link:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 10px rgba(140, 109, 63, 0.35);
+            opacity: 0.85;
+        }
+
+        .bandera-icon {
+            width: 36px;
+            height: 24px;
+            display: block;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+            border-radius: 2px;
         }
 
         /* Adaptación a pantallas pequeñas */
@@ -137,8 +140,8 @@
                 gap: 15px;
             }
             .bandera-icon {
-                width: 38px;
-                height: 38px;
+                width: 32px;
+                height: 21px;
             }
         }
     </style>
@@ -150,28 +153,28 @@
         <!-- Menú de navegación (1. Inicio, 2. Biografía, 3. Agenda, 4. Colaboración Artística) -->
         <nav>
             <!-- 1. Inicio: Icono Casa -->
-            <a href="index.html" title="Inicio">
+            <a href="index.html" title="Startseite">
                 <svg width="22" height="22" fill="currentColor" viewBox="0 0 16 16">
                     <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5ZM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5 5 5Z"/>
                 </svg>
             </a>
 
             <!-- 2. Biografía: Icono Pluma / Libro -->
-            <a href="bio.html" title="Biografía">
+            <a href="bio.html" title="Biografie">
                 <svg width="22" height="22" fill="currentColor" viewBox="0 0 16 16">
                     <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.823c-.918-.35-2.107-.691-3.287-.81-1.093-.11-2.278-.037-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.334-.896 3.739-1.038 1.15-.116 2.222.012 2.923.456a.5.5 0 0 0 .543 0c.701-.444 1.773-.572 2.923-.456 1.405.142 2.857.638 3.739 1.038A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
                 </svg>
             </a>
 
             <!-- 3. Agenda: Icono Calendario -->
-            <a href="agenda.html" title="Agenda">
+            <a href="agenda.html" title="Termine">
                 <svg width="22" height="22" fill="currentColor" viewBox="0 0 16 16">
                     <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
                 </svg>
             </a>
 
             <!-- 4. Colaboración Artística: Icono Pincel / Arte -->
-            <a href="colaboracion.html" title="Colaboración artística">
+            <a href="colaboracion.html" title="Künstlerische Zusammenarbeit">
                 <svg width="22" height="22" fill="currentColor" viewBox="0 0 16 16">
                     <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm1.5 3a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zm-5 2a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zm-1 5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zm7.5.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z"/>
                 </svg>
@@ -197,28 +200,34 @@
             <p>Sein berufliches Profil wird durch seine Erfahrung als Cembalist und das Spielen des Generalbasses (Basso Continuo) abgerundet, wo er mit Ensembles und Orchestern für Alte Musik und historische Instrumente zusammenarbeitet, wie etwa L’Accademico Formato, dem ersten professionellen Barockorchester mit Sitz in Málaga.</p>
         </div>
 
-        <!-- BANDERAS AL FINAL DEL DOCUMENTO -->
+        <!-- BANDERAS AL FINAL DEL DOCUMENTO CON ENLACES -->
         <div class="banderas-container">
             <!-- 1. España -->
-            <svg class="bandera-icon" viewBox="0 0 4 3" title="España">
-                <rect width="4" height="0.75" y="0" fill="#AA151B"/>
-                <rect width="4" height="1.5" y="0.75" fill="#F1BF00"/>
-                <rect width="4" height="0.75" y="2.25" fill="#AA151B"/>
-            </svg>
+            <a href="bio.html" class="bandera-link" title="Español">
+                <svg class="bandera-icon" viewBox="0 0 4 3">
+                    <rect width="4" height="0.75" y="0" fill="#AA151B"/>
+                    <rect width="4" height="1.5" y="0.75" fill="#F1BF00"/>
+                    <rect width="4" height="0.75" y="2.25" fill="#AA151B"/>
+                </svg>
+            </a>
 
             <!-- 2. Francia -->
-            <svg class="bandera-icon" viewBox="0 0 3 2" title="Francia">
-                <rect width="1" height="2" x="0" fill="#002395"/>
-                <rect width="1" height="2" x="1" fill="#FFFFFF"/>
-                <rect width="1" height="2" x="2" fill="#ED2939"/>
-            </svg>
+            <a href="francia.html" class="bandera-link" title="Français">
+                <svg class="bandera-icon" viewBox="0 0 3 2">
+                    <rect width="1" height="2" x="0" fill="#002395"/>
+                    <rect width="1" height="2" x="1" fill="#FFFFFF"/>
+                    <rect width="1" height="2" x="2" fill="#ED2939"/>
+                </svg>
+            </a>
 
-            <!-- 3. Inglaterra (Cruz de San Jorge) -->
-            <svg class="bandera-icon" viewBox="0 0 5 3" title="Inglaterra">
-                <rect width="5" height="3" fill="#FFFFFF"/>
-                <rect width="5" height="0.6" y="1.2" fill="#CE1124"/>
-                <rect width="1" height="3" x="2" fill="#CE1124"/>
-            </svg>
+            <!-- 3. Inglaterra -->
+            <a href="ingles.html" class="bandera-link" title="English">
+                <svg class="bandera-icon" viewBox="0 0 5 3">
+                    <rect width="5" height="3" fill="#FFFFFF"/>
+                    <rect width="5" height="0.6" y="1.2" fill="#CE1124"/>
+                    <rect width="1" height="3" x="2" fill="#CE1124"/>
+                </svg>
+            </a>
         </div>
 
     </div>
