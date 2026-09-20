@@ -105,20 +105,23 @@
             padding: 10px;
         }
 
-        .bandera-icon {
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            border: 1px solid #8c6d3f;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
-            object-fit: cover;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        .bandera-link {
+            display: inline-block;
+            text-decoration: none;
+            transition: transform 0.2s ease, opacity 0.2s ease;
         }
 
-        .bandera-icon:hover {
+        .bandera-link:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 10px rgba(140, 109, 63, 0.35);
+            opacity: 0.85;
+        }
+
+        .bandera-icon {
+            width: 36px;
+            height: 24px;
+            display: block;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+            border-radius: 2px;
         }
 
         /* Adaptación a pantallas pequeñas */
@@ -137,8 +140,8 @@
                 gap: 15px;
             }
             .bandera-icon {
-                width: 38px;
-                height: 38px;
+                width: 32px;
+                height: 21px;
             }
         }
     </style>
@@ -197,28 +200,34 @@
             <p>Su perfil profesional se completa con su experiencia como clavecinista y la realización del bajo continuo, junto a agrupaciones y orquestas de música antigua e instrumentos históricos, como L´Accademico Formato, primera orquesta barroca profesional residente en Málaga.</p>
         </div>
 
-        <!-- BANDERAS AL FINAL DEL DOCUMENTO -->
+        <!-- BANDERAS AL FINAL DEL DOCUMENTO CON ENLACES -->
         <div class="banderas-container">
             <!-- 1. Alemania -->
-            <svg class="bandera-icon" viewBox="0 0 5 3" title="Alemania">
-                <rect width="5" height="1" y="0" fill="#000000"/>
-                <rect width="5" height="1" y="1" fill="#DD0000"/>
-                <rect width="5" height="1" y="2" fill="#FFCE00"/>
-            </svg>
+            <a href="aleman.html" class="bandera-link" title="Deutsch">
+                <svg class="bandera-icon" viewBox="0 0 5 3">
+                    <rect width="5" height="1" y="0" fill="#000000"/>
+                    <rect width="5" height="1" y="1" fill="#DD0000"/>
+                    <rect width="5" height="1" y="2" fill="#FFCE00"/>
+                </svg>
+            </a>
 
             <!-- 2. Francia -->
-            <svg class="bandera-icon" viewBox="0 0 3 2" title="Francia">
-                <rect width="1" height="2" x="0" fill="#002395"/>
-                <rect width="1" height="2" x="1" fill="#FFFFFF"/>
-                <rect width="1" height="2" x="2" fill="#ED2939"/>
-            </svg>
+            <a href="francia.html" class="bandera-link" title="Français">
+                <svg class="bandera-icon" viewBox="0 0 3 2">
+                    <rect width="1" height="2" x="0" fill="#002395"/>
+                    <rect width="1" height="2" x="1" fill="#FFFFFF"/>
+                    <rect width="1" height="2" x="2" fill="#ED2939"/>
+                </svg>
+            </a>
 
-            <!-- 3. Inglaterra (Cruz de San Jorge) -->
-            <svg class="bandera-icon" viewBox="0 0 5 3" title="Inglaterra">
-                <rect width="5" height="3" fill="#FFFFFF"/>
-                <rect width="5" height="0.6" y="1.2" fill="#CE1124"/>
-                <rect width="1" height="3" x="2" fill="#CE1124"/>
-            </svg>
+            <!-- 3. Inglaterra -->
+            <a href="inglés.html" class="bandera-link" title="English">
+                <svg class="bandera-icon" viewBox="0 0 5 3">
+                    <rect width="5" height="3" fill="#FFFFFF"/>
+                    <rect width="5" height="0.6" y="1.2" fill="#CE1124"/>
+                    <rect width="1" height="3" x="2" fill="#CE1124"/>
+                </svg>
+            </a>
         </div>
 
     </div>
