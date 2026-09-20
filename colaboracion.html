@@ -359,10 +359,6 @@
                 width: 42px;
                 height: 42px;
             }
-            .videos-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
             .slots-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -455,24 +451,27 @@
             <h2 class="modal-title">Solicitud de Reserva</h2>
 
             <form id="form-solicitud">
+                <!-- Sin asterisco -->
                 <div class="form-group">
-                    <label for="nombre">Nombre y Apellidos *</label>
+                    <label for="nombre">Nombre y Apellidos</label>
                     <input type="text" id="nombre" required placeholder="Tu nombre completo">
                 </div>
 
-                <!-- Campo Mensaje situado justo debajo de Nombre y Apellidos -->
+                <!-- Campo Mensaje -->
                 <div class="form-group">
                     <label for="mensaje">Mensaje</label>
                     <textarea id="mensaje" rows="3" placeholder="Escribe aquí tu mensaje o detalles adicionales..."></textarea>
                 </div>
 
+                <!-- Sin asterisco -->
                 <div class="form-group">
-                    <label for="email">Correo electrónico *</label>
+                    <label for="email">Correo electrónico</label>
                     <input type="email" id="email" required placeholder="ejemplo@correo.com">
                 </div>
 
+                <!-- Sin asterisco -->
                 <div class="form-group">
-                    <label for="servicio">Servicio o Tipo de colaboración *</label>
+                    <label for="servicio">Servicio o Tipo de colaboración</label>
                     <select id="servicio" required>
                         <option value="Audiciones y pruebas de orquesta">Audiciones y preparación de pruebas de orquesta</option>
                         <option value="Oposiciones con piano">Oposiciones con acompañamiento de piano</option>
@@ -482,8 +481,9 @@
                     </select>
                 </div>
 
+                <!-- Sin asterisco -->
                 <div class="form-group">
-                    <label for="instrumento">Instrumento/s *</label>
+                    <label for="instrumento">Instrumento/s</label>
                     <input type="text" id="instrumento" required placeholder="Indica tu instrumento (ej. Violín, Canto, Flauta...)">
                 </div>
 
@@ -501,16 +501,17 @@
                     </div>
                 </div>
 
-                <!-- Modificación 1: Cambio de título sin parentesis ni aclaraciones extra -->
+                <!-- Sin asterisco -->
                 <div class="form-group">
-                    <label>Franjas Horarias *</label>
+                    <label>Franjas Horarias</label>
                     <div class="slots-grid">
-                        <button type="button" class="slot-btn" data-time="09:00 - 11:00" data-slots="mantenimiento">09:00 - 11:00</button>
-                        <button type="button" class="slot-btn" data-time="10:00 - 13:00" data-slots="martes-m">10:00 - 13:00</button>
-                        <button type="button" class="slot-btn" data-time="11:30 - 13:30" data-slots="mantenimiento">11:30 - 13:30</button>
-                        <button type="button" class="slot-btn" data-time="16:00 - 18:00" data-slots="mantenimiento">16:00 - 18:00</button>
-                        <button type="button" class="slot-btn" data-time="18:30 - 20:30" data-slots="mantenimiento">18:30 - 20:30</button>
-                        <button type="button" class="slot-btn" data-time="18:30 - 21:00" data-slots="viernes-t">18:30 - 21:00</button>
+                        <button type="button" class="slot-btn" data-time="09:30 - 11:00">09:30 - 11:00</button>
+                        <button type="button" class="slot-btn" data-time="10:00 - 12:00">10:00 - 12:00</button>
+                        <button type="button" class="slot-btn" data-time="11:30 - 13:00">11:30 - 13:00</button>
+                        <button type="button" class="slot-btn" data-time="12:30 - 14:30">12:30 - 14:30</button>
+                        <button type="button" class="slot-btn" data-time="17:00 - 19:00">17:00 - 19:00</button>
+                        <button type="button" class="slot-btn" data-time="18:30 - 20:30">18:30 - 20:30</button>
+                        <button type="button" class="slot-btn" data-time="19:30 - 21:30">19:30 - 21:30</button>
                     </div>
                 </div>
 
@@ -572,19 +573,13 @@
 
         hiddenDatePicker.onchange = function() {
             if (this.value) {
-                // date format: YYYY-MM-DD
                 const partes = this.value.split('-');
                 const fechaSeleccionada = new Date(partes[0], partes[1] - 1, partes[2]);
-                const diaSemana = fechaSeleccionada.getDay(); // 0 = Domingo, 1 = Lunes, 2 = Martes, ..., 6 = Sábado
+                const diaSemana = fechaSeleccionada.getDay(); // 0 = Domingo, 1 = Lunes, 2 = Martes, 3 = Miércoles, 4 = Jueves, 5 = Viernes, 6 = Sábado
 
-                // Días disponibles:
-                // 1 = Lunes (mañana y tarde)
-                // 2 = Martes (solo mañana: 10 a 13)
-                // 5 = Viernes (solo tarde: 18:30 a 21)
-                // 6 = Sábado (mañana y tarde)
-                // 0 = Domingo (mañana y tarde)
-                if (diaSemana === 3 || diaSemana === 4) { // 3: Miércoles, 4: Jueves
-                    alert("Lo sentimos, no hay disponibilidad los miércoles ni jueves.");
+                // Restricción para Miércoles (3) y Jueves (4)
+                if (diaSemana === 3 || diaSemana === 4) {
+                    alert("Lo sentimos, no hay disponibilidad los miércoles ni los jueves.");
                     this.value = '';
                     return;
                 }
@@ -597,7 +592,7 @@
                     fechasInput.value += `, ${fechaFormateada}`;
                 }
 
-                // Ajuste de franjas horarias permitidas según el día seleccionado
+                // Filtrar franjas horarias exactas según el día
                 actualizarSlotsHorarios(diaSemana);
 
                 this.value = '';
@@ -609,12 +604,20 @@
                 slot.classList.remove('selected');
                 const time = slot.getAttribute('data-time');
 
-                if (diaSemana === 2) { // Martes (10:00 - 13:00)
-                    slot.disabled = (time !== '10:00 - 13:00');
-                } else if (diaSemana === 5) { // Viernes (18:30 - 21:00)
-                    slot.disabled = (time !== '18:30 - 21:00');
-                } else { // Lunes, Sábado y Domingo (Mañana y tarde generales)
-                    slot.disabled = (time === '10:00 - 13:00' || time === '18:30 - 21:00');
+                // Lunes (1), Sábado (6) y Domingo (0): 10-12, 12,30-14,30, 17-19, 19,30-21,30
+                if (diaSemana === 1 || diaSemana === 6 || diaSemana === 0) {
+                    const permitidas = ['10:00 - 12:00', '12:30 - 14:30', '17:00 - 19:00', '19:30 - 21:30'];
+                    slot.disabled = !permitidas.includes(time);
+                } 
+                // Martes (2): 9:30-11:00, 11:30-13:00
+                else if (diaSemana === 2) {
+                    const permitidas = ['09:30 - 11:00', '11:30 - 13:00'];
+                    slot.disabled = !permitidas.includes(time);
+                } 
+                // Viernes (5): 18,30-20,30
+                else if (diaSemana === 5) {
+                    const permitidas = ['18:30 - 20:30'];
+                    slot.disabled = !permitidas.includes(time);
                 }
             });
         }
@@ -666,11 +669,3 @@
     </script>
 </body>
 </html>
-     
-
-      
-   
-
-                
-                           
-
