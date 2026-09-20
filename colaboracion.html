@@ -359,6 +359,9 @@
                 width: 42px;
                 height: 42px;
             }
+            .videos-grid {
+                grid-template-columns: 1fr;
+            }
             .slots-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -420,7 +423,7 @@
             <li><span class="simbolo">➤</span> Ensayos y grabaciones</li>
         </ul>
 
-        <!-- Muestra de vídeos MP4 nativos sin publicidad ni interfaz de YouTube -->
+        <!-- Muestra de vídeos MP4 nativos en cuadrícula 2x2 -->
         <div class="videos-seccion">
             <div class="videos-grid">
                 <video class="video-player" controls preload="metadata">
@@ -429,6 +432,14 @@
                 </video>
                 <video class="video-player" controls preload="metadata">
                     <source src="brahms.mp4" type="video/mp4">
+                    Tu navegador no soporta el reproductor de vídeo.
+                </video>
+                <video class="video-player" controls preload="metadata">
+                    <source src="strauss.mp4" type="video/mp4">
+                    Tu navegador no soporta el reproductor de vídeo.
+                </video>
+                <video class="video-player" controls preload="metadata">
+                    <source src="musicnsky.mp4" type="video/mp4">
                     Tu navegador no soporta el reproductor de vídeo.
                 </video>
             </div>
@@ -618,21 +629,15 @@
             const nombre = document.getElementById('nombre').value;
             const mensaje = document.getElementById('mensaje').value;
             const email = document.getElementById('email').value;
-            const servicio = document.getElementById('servicio').value;
-            const instrumento = document.getElementById('instrumento').value;
             const fechas = document.getElementById('fechas').value;
-            const repertorio = document.getElementById('repertorio').value;
 
-            const asunto = encodeURIComponent("Consulta de disponibilidad - " + servicio);
+            const asunto = encodeURIComponent("Consulta de disponibilidad - Acompañamiento Pianístico");
             const cuerpo = encodeURIComponent(
                 "Nombre: " + nombre + "\n" +
                 "Mensaje:\n" + mensaje + "\n\n" +
                 "Email: " + email + "\n" +
-                "Servicio: " + servicio + "\n" +
-                "Instrumento/s: " + instrumento + "\n" +
                 "Fecha/s solicitadas: " + fechas + "\n" +
-                "Franja/s horaria/s: " + slotsSeleccionados.join(", ") + "\n\n" +
-                "Repertorio:\n" + repertorio
+                "Franja/s horaria/s: " + slotsSeleccionados.join(", ")
             );
 
             window.location.href = `mailto:pablopianista1991@yahoo.com?subject=${asunto}&body=${cuerpo}`;
