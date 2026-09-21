@@ -101,51 +101,67 @@
             opacity: 1;
         }
 
-        /* Encabezado introductorio para la lista de servicios */
-        .servicios-titulo {
-            font-size: 1.35em;
-            font-weight: 600;
-            color: #721c1c;
-            margin-top: 10px;
-            margin-bottom: 20px;
-            letter-spacing: 0.3px;
-            font-style: italic;
+        /* Grid de 4 cuadros de servicios */
+        .servicios-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 0 auto 35px auto;
+            max-width: 800px;
         }
 
-        /* Lista elegante de servicios con símbolos artísticos */
-        .servicios-lista {
+        /* Estilo elegante para cada cuadro */
+        .cuadro-servicio {
+            background-color: rgba(253, 250, 243, 0.85);
+            border: 1px solid #8c6d3f;
+            border-radius: 8px;
+            padding: 20px 18px;
+            text-align: left;
+            box-shadow: 0 4px 12px rgba(43, 34, 25, 0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .cuadro-servicio:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 18px rgba(114, 28, 28, 0.12);
+            border-color: #721c1c;
+        }
+
+        .cuadro-titulo {
+            font-size: 1.2em;
+            font-weight: 700;
+            color: #721c1c;
+            margin-top: 0;
+            margin-bottom: 12px;
+            border-bottom: 1px dashed rgba(140, 109, 63, 0.4);
+            padding-bottom: 6px;
+        }
+
+        /* Lista reducida dentro de los cuadros */
+        .cuadro-lista {
             list-style: none;
             padding: 0;
-            margin: 0 auto 40px auto;
-            max-width: 700px;
-            text-align: left;
+            margin: 0;
         }
-        .servicios-lista li {
-            font-size: 1.35em;
+
+        .cuadro-lista li {
+            font-size: 1.05em;
             font-weight: 600;
             color: #2b2219;
-            padding: 14px 20px;
-            margin-bottom: 12px;
-            border-bottom: 1px solid rgba(140, 109, 63, 0.3);
-            transition: all 0.3s ease;
+            padding: 5px 0;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 8px;
+            line-height: 1.3;
         }
-        .servicios-lista li:last-child {
-            border-bottom: none;
-        }
-        .servicios-lista li:hover {
-            color: #721c1c;
-            transform: translateX(5px);
-        }
-        .servicios-lista .simbolo {
+
+        .cuadro-lista .simbolo {
             color: #8c6d3f;
-            font-size: 1.2em;
-            transition: color 0.3s ease;
-        }
-        .servicios-lista li:hover .simbolo {
-            color: #721c1c;
+            font-size: 0.9em;
+            flex-shrink: 0;
         }
 
         /* Sección de vídeos nativos limpia y elegante */
@@ -362,12 +378,9 @@
 
         /* Adaptación móvil */
         @media (max-width: 600px) {
-            .servicios-titulo {
-                font-size: 1.2em;
-            }
-            .servicios-lista li {
-                font-size: 1.15em;
-                padding: 12px 10px;
+            .servicios-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
             }
             .btn-consultar {
                 padding: 12px 22px;
@@ -433,17 +446,45 @@
             <source src="sospiro.mp3" type="audio/mpeg">
         </audio>
 
-        <!-- Encabezado actualizado -->
-        <h2 class="servicios-titulo">Acompañamiento pianístico para:</h2>
+        <!-- Distribución de 4 cuadros de servicios -->
+        <div class="servicios-grid">
+            <!-- Cuadro 1: Acompañamiento Pianístico -->
+            <div class="cuadro-servicio">
+                <h3 class="cuadro-titulo">Acompañamiento pianístico</h3>
+                <ul class="cuadro-lista">
+                    <li><span class="simbolo">➤</span> Ensayos</li>
+                    <li><span class="simbolo">➤</span> Grabaciones</li>
+                    <li><span class="simbolo">➤</span> Oposiciones</li>
+                    <li><span class="simbolo">➤</span> Pruebas de acceso a Enseñanzas Superiores y Máster</li>
+                </ul>
+            </div>
 
-        <!-- Lista organizada de servicios con punta de flecha elegante (➤) con el nuevo orden -->
-        <ul class="servicios-lista">
-            <li><span class="simbolo">➤</span> Ensayos</li>
-            <li><span class="simbolo">➤</span> Grabaciones</li>
-            <li><span class="simbolo">➤</span> Oposiciones</li>
-            <li><span class="simbolo">➤</span> Pruebas de acceso a Enseñanzas Superiores y Máster</li>
-            <li><span class="simbolo">➤</span> Pruebas de orquesta</li>
-        </ul>
+            <!-- Cuadro 2: Música de Cámara y Ensembles -->
+            <div class="cuadro-servicio">
+                <h3 class="cuadro-titulo">Agrupaciones</h3>
+                <ul class="cuadro-lista">
+                    <li><span class="simbolo">➤</span> Música de cámara</li>
+                    <li><span class="simbolo">➤</span> Ensembles</li>
+                </ul>
+            </div>
+
+            <!-- Cuadro 3: Conciertos y Repertorio -->
+            <div class="cuadro-servicio">
+                <h3 class="cuadro-titulo">Solista</h3>
+                <ul class="cuadro-lista">
+                    <li><span class="simbolo">➤</span> Conciertos de piano</li>
+                    <li><span class="simbolo">➤</span> Repertorio</li>
+                </ul>
+            </div>
+
+            <!-- Cuadro 4: Clases de Piano -->
+            <div class="cuadro-servicio">
+                <h3 class="cuadro-titulo">Docencia</h3>
+                <ul class="cuadro-lista">
+                    <li><span class="simbolo">➤</span> Clases de piano</li>
+                </ul>
+            </div>
+        </div>
 
         <!-- Muestra de vídeos MP4 nativos en cuadrícula 2x2 -->
         <div class="videos-seccion">
@@ -668,3 +709,10 @@
     </script>
 </body>
 </html>
+
+       
+             
+   
+                    
+      
+               
