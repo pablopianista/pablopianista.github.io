@@ -59,6 +59,33 @@
             transform: translateY(-2px);
         }
 
+        /* EFECTO DE IMAGEN DE FONDO/FUSIÓN (Mismo estilo que index.html) */
+        .foto-principal {
+            max-width: 70%;
+            height: auto;
+            margin: 0 auto 30px auto;
+            display: block;
+            opacity: 0;
+            animation: fadeIn 2.5s ease-in forwards;
+
+            -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 75%);
+            mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 75%);
+
+            mix-blend-mode: multiply;
+            filter: sepia(0.12) contrast(1.08);
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            100% {
+                opacity: 0.95;
+                transform: translateY(0);
+            }
+        }
+
         /* TEXTO INTEGRADO SOBRE PAPIRO Y ALINEADO A LA IZQUIERDA */
         .bio-content {
             text-align: left;
@@ -71,27 +98,6 @@
         .bio-content p {
             margin-top: 0;
             margin-bottom: 20px;
-        }
-
-        /* IMAGEN FLOTANTE INTEGRADA CON EL TEXTO */
-        .bio-img {
-            float: right;
-            width: 280px;
-            max-width: 45%;
-            height: auto;
-            margin-left: 25px;
-            margin-bottom: 20px;
-            margin-top: 5px;
-            border-radius: 4px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            border: 1px solid rgba(140, 109, 63, 0.3);
-        }
-
-        /* Limpieza final para evitar desbordamientos */
-        .bio-content::after {
-            content: "";
-            display: table;
-            clear: both;
         }
 
         /* SECCIÓN DE BANDERAS AL FINAL DE LA PÁGINA (sin círculos) */
@@ -126,15 +132,11 @@
 
         /* Adaptación a pantallas pequeñas */
         @media (max-width: 600px) {
+            .foto-principal {
+                max-width: 85%;
+            }
             .bio-content {
                 font-size: 1.1em;
-            }
-            .bio-img {
-                float: none;
-                display: block;
-                margin: 0 auto 20px auto;
-                width: 100%;
-                max-width: 100%;
             }
             .banderas-container {
                 gap: 15px;
@@ -181,10 +183,11 @@
             </a>
         </nav>
 
+        <!-- Imagen con efecto integrado sobre el papiro -->
+        <img src="imagenalfeizar.jpg" alt="Pablo Moreno Camacho" class="foto-principal">
+
         <!-- Bloque de contenido -->
         <div class="bio-content">
-            <img src="imagenalfeizar.jpg" alt="Pablo Moreno Camacho" class="bio-img">
-
             <p>Pianista de 35 años de edad, combina su labor docente, como profesor de Repertorio con Piano para Instrumentos en el Conservatorio Superior de Música de Sevilla, y su actividad como concertista.</p>
 
             <p>Ha colaborado con orquestas como la Cordats Symfonie Orkest de Rotterdam, Orquesta Promúsica, Orquesta y Coro New Filarmónica, y, recientemente, con la Orquesta Filarmónica de Málaga, de la que forma parte de la bolsa de Piano, Celesta y Órgano, bajo la dirección de maestros como Manuel Bustos, Elisa Gómez, Kristian Kalsen y Susanna Mälkki.</p>
