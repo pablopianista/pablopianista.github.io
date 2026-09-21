@@ -157,36 +157,6 @@
             transform: scale(1.02);
         }
 
-        /* SECCIÓN DE BANDERAS AL FINAL (sin círculos) */
-        .banderas-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            margin-top: 20px;
-            margin-bottom: 30px;
-            padding: 10px;
-        }
-
-        .bandera-link {
-            display: inline-block;
-            text-decoration: none;
-            transition: transform 0.2s ease, opacity 0.2s ease;
-        }
-
-        .bandera-link:hover {
-            transform: translateY(-2px);
-            opacity: 0.85;
-        }
-
-        .bandera-icon {
-            width: 36px;
-            height: 24px;
-            display: block;
-            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
-            border-radius: 2px;
-        }
-
         /* Adaptación móvil */
         @media (max-width: 600px) {
             .nombre-artista {
@@ -204,13 +174,6 @@
             }
             .seccion-videos {
                 grid-template-columns: 1fr;
-            }
-            .banderas-container {
-                gap: 15px;
-            }
-            .bandera-icon {
-                width: 32px;
-                height: 21px;
             }
         }
     </style>
@@ -272,36 +235,6 @@
                 <source src="totentanz.mp4" type="video/mp4">
                 Tu navegador no soporta el reproductor de vídeo.
             </video>
-        </div>
-
-        <!-- SECCIÓN DE BANDERAS AL FINAL -->
-        <div class="banderas-container">
-            <!-- 1. Alemania -->
-            <a href="aleman.html" class="bandera-link" title="aleman">
-                <svg class="bandera-icon" viewBox="0 0 5 3">
-                    <rect width="5" height="1" y="0" fill="#000000"/>
-                    <rect width="5" height="1" y="1" fill="#DD0000"/>
-                    <rect width="5" height="1" y="2" fill="#FFCC00"/>
-                </svg>
-            </a>
-
-            <!-- 2. Francia -->
-            <a href="francia.html" class="bandera-link" title="francia">
-                <svg class="bandera-icon" viewBox="0 0 3 2">
-                    <rect width="1" height="2" x="0" fill="#002395"/>
-                    <rect width="1" height="2" x="1" fill="#FFFFFF"/>
-                    <rect width="1" height="2" x="2" fill="#ED2939"/>
-                </svg>
-            </a>
-
-            <!-- 3. Inglaterra -->
-            <a href="ingles.html" class="bandera-link" title="ingles">
-                <svg class="bandera-icon" viewBox="0 0 5 3">
-                    <rect width="5" height="3" fill="#FFFFFF"/>
-                    <rect width="5" height="0.6" y="1.2" fill="#CE1124"/>
-                    <rect width="1" height="3" x="2" fill="#CE1124"/>
-                </svg>
-            </a>
         </div>
 
     </div>
