@@ -164,38 +164,13 @@
             flex-shrink: 0;
         }
 
-        /* Bloque/Tarjeta cuadrada para la consulta de disponibilidad */
-        .tarjeta-consulta {
-            max-width: 800px;
+        /* Contenedor sencillo centrado para el botón de consulta */
+        .contenedor-consulta {
             margin: 0 auto 35px auto;
-            background-color: rgba(253, 250, 243, 0.9);
-            border: 1.5px solid #8c6d3f;
-            border-radius: 8px;
-            padding: 22px 25px;
-            box-shadow: 0 4px 14px rgba(43, 34, 25, 0.08);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            box-sizing: border-box;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
         }
 
-        .tarjeta-consulta:hover {
-            border-color: #721c1c;
-            box-shadow: 0 6px 18px rgba(114, 28, 28, 0.12);
-        }
-
-        .tarjeta-consulta-titulo {
-            font-size: 1.3em;
-            font-weight: 700;
-            color: #721c1c;
-            margin-top: 0;
-            margin-bottom: 12px;
-            letter-spacing: 0.5px;
-        }
-
-        /* Botón representativo dentro de la tarjeta */
+        /* Botón representativo de consulta */
         .btn-consultar {
             display: inline-flex;
             align-items: center;
@@ -515,9 +490,8 @@
             </div>
         </div>
 
-        <!-- Tarjeta Cuadrada de Consulta de Disponibilidad (Encima de los vídeos) -->
-        <div class="tarjeta-consulta">
-            <h3 class="tarjeta-consulta-titulo">Reserva y Disponibilidad</h3>
+        <!-- Botón de Consulta de Disponibilidad (Sin cuadro alrededor) -->
+        <div class="contenedor-consulta">
             <button id="btn-abrir-modal" class="btn-consultar">
                 <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
                     <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zM3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
@@ -741,8 +715,3 @@
     </script>
 </body>
 </html>
-             
-   
-                    
-      
-               
