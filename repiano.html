@@ -394,7 +394,6 @@
                 <div class="epoca-header">
                     <h2 class="epoca-titulo">
                         <span>Barroco</span>
-                        <span class="epoca-contador">3 compositores</span>
                     </h2>
                     <span class="epoca-icono">▼</span>
                 </div>
@@ -438,7 +437,6 @@
                 <div class="epoca-header">
                     <h2 class="epoca-titulo">
                         <span>Clasicismo</span>
-                        <span class="epoca-contador">3 compositores</span>
                     </h2>
                     <span class="epoca-icono">▼</span>
                 </div>
@@ -483,7 +481,6 @@
                 <div class="epoca-header">
                     <h2 class="epoca-titulo">
                         <span>Romanticismo</span>
-                        <span class="epoca-contador">5 compositores</span>
                     </h2>
                     <span class="epoca-icono">▼</span>
                 </div>
@@ -547,7 +544,6 @@
                 <div class="epoca-header">
                     <h2 class="epoca-titulo">
                         <span>Nacionalismo Español</span>
-                        <span class="epoca-contador">3 compositores</span>
                     </h2>
                     <span class="epoca-icono">▼</span>
                 </div>
@@ -559,9 +555,9 @@
                             <li>"Córdoba" (Cantos de España)</li>
                             <li>"La Vega" (Suite Alhambra)</li>
                             <li>Suite Española op. 47</li>
-                            <li class="sub-obra">Granada (Serenata)</li>
-                            <li class="sub-obra">Cádiz</li>
-                            <li class="sub-obra">Asturias (Leyenda)</li>
+                            <li>Granada (Serenata)</li>
+                            <li>Cádiz</li>
+                            <li>Asturias (Leyenda)</li>
                         </ul>
                     </div>
                     <div class="compositor-card">
@@ -589,7 +585,6 @@
                 <div class="epoca-header">
                     <h2 class="epoca-titulo">
                         <span>Siglo XX</span>
-                        <span class="epoca-contador">15 compositores</span>
                     </h2>
                     <span class="epoca-icono">▼</span>
                 </div>
@@ -709,7 +704,6 @@
                 <div class="epoca-header">
                     <h2 class="epoca-titulo">
                         <span>Siglo XXI</span>
-                        <span class="epoca-contador">2 compositores</span>
                     </h2>
                     <span class="epoca-icono">▼</span>
                 </div>
@@ -747,56 +741,18 @@
                 bloque.classList.toggle('open');
             });
         });
-
-        // Funcionalidad de Filtros por Período
-        const botonesFiltro = document.querySelectorAll('.btn-filtro');
-        const bloquesEpoca = document.querySelectorAll('.epoca-bloque');
-
-        botonesFiltro.forEach(btn => {
-            btn.addEventListener('click', () => {
-                botonesFiltro.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-
-                const filtro = btn.getAttribute('data-filtro');
-
-                bloquesEpoca.forEach(bloque => {
-                    if (filtro === 'todos' || bloque.getAttribute('data-epoca') === filtro) {
-                        bloque.style.display = 'block';
-                        bloque.classList.add('open');
-                    } else {
-                        bloque.style.display = 'none';
-                    }
-                });
-            });
-        });
-
-        // Buscador en tiempo real por compositor u obra
-        const buscador = document.getElementById('buscador');
-        buscador.addEventListener('input', (e) => {
-            const texto = e.target.value.toLowerCase().trim();
-
-            bloquesEpoca.forEach(bloque => {
-                let coincideEpoca = false;
-                const compositores = bloque.querySelectorAll('.compositor-card');
-
-                compositores.forEach(comp => {
-                    const contenidoComp = comp.textContent.toLowerCase();
-                    if (contenidoComp.includes(texto)) {
-                        comp.style.display = 'block';
-                        coincideEpoca = true;
-                    } else {
-                        comp.style.display = 'none';
-                    }
-                });
-
-                if (coincideEpoca || texto === '') {
-                    bloque.style.display = 'block';
-                    bloque.classList.add('open');
-                } else {
-                    bloque.style.display = 'none';
-                }
-            });
-        });
     </script>
 </body>
 </html>
+
+  
+     
+        
+     
+
+
+    
+
+      
+       
+          
