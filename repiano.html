@@ -109,20 +109,18 @@
             color: #721c1c;
             margin: 0 0 5px 0;
             letter-spacing: 0.5px;
-            text-transform: none; /* Conserva exactamente las mayúsculas/minúsculas del texto */
+            text-transform: none;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 12px;
+            gap: 10px;
         }
         .header-titulo .icono-musical {
-            font-size: 0.85em;
             color: #8c6d3f;
             opacity: 0.85;
-            font-weight: normal;
         }
 
-        /* Barra de búsqueda y Filtros por Período */
+        /* Buscador y Filtros */
         .controles-repertorio {
             margin-bottom: 30px;
             display: flex;
@@ -195,7 +193,6 @@
             box-shadow: 0 6px 18px rgba(114, 28, 28, 0.12);
         }
 
-        /* Cabecera desplegable de época */
         .epoca-header {
             padding: 16px 22px;
             background-color: rgba(244, 236, 216, 0.6);
@@ -220,15 +217,6 @@
             gap: 10px;
         }
 
-        .epoca-contador {
-            font-size: 0.85em;
-            font-weight: 500;
-            color: #8c6d3f;
-            background: rgba(140, 109, 63, 0.15);
-            padding: 2px 10px;
-            border-radius: 12px;
-        }
-
         .epoca-icono {
             font-size: 1.2em;
             color: #8c6d3f;
@@ -238,7 +226,6 @@
             transform: rotate(180deg);
         }
 
-        /* Contenido con compositores e obras */
         .epoca-contenido {
             padding: 20px 25px;
             display: none;
@@ -297,7 +284,6 @@
             font-style: normal;
         }
 
-        /* Pie de página con contacto directo */
         .footer-contacto {
             margin-top: 40px;
             padding: 20px;
@@ -365,9 +351,14 @@
             </a>
         </nav>
 
-        <!-- Título -->
+        <!-- Título con icono SVG elegante -->
         <div class="header-titulo">
-            <h1>Repertorio para piano solo <span class="icono-musical">🎼</span></h1>
+            <h1>
+                Repertorio para piano solo 
+                <svg class="icono-musical" viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+                    <path d="M12 2a1 1 0 0 0-1 1v11.17A3.001 3.001 0 1 0 13 17V6h3a1 1 0 1 0 0-2h-4zm-2 16a1 1 0 1 1 1-1 1.001 1.001 0 0 1-1 1z"/>
+                </svg>
+            </h1>
         </div>
 
         <!-- Buscador y Filtros -->
@@ -733,7 +724,6 @@
 
     <!-- Script para Acordeón -->
     <script>
-        // Funcionalidad de Acordeón
         document.querySelectorAll('.epoca-header').forEach(header => {
             header.addEventListener('click', () => {
                 const bloque = header.parentElement;
