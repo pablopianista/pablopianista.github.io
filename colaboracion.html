@@ -164,15 +164,25 @@
             flex-shrink: 0;
         }
 
-        /* Estilo para los enlaces de la lista */
-        .cuadro-lista a {
-            color: inherit;
+        /* Estilo para el recuadrito de enlace al repertorio */
+        .btn-repertorio {
+            display: inline-block;
+            margin-left: 6px;
+            padding: 2px 8px;
+            font-size: 0.8em;
+            font-weight: 700;
+            color: #8c6d3f;
+            border: 1px solid #8c6d3f;
+            border-radius: 4px;
+            background-color: rgba(250, 246, 237, 0.9);
             text-decoration: none;
-            transition: color 0.2s ease;
+            transition: all 0.2s ease;
+            vertical-align: middle;
         }
-        .cuadro-lista a:hover {
-            color: #721c1c;
-            text-decoration: underline;
+        .btn-repertorio:hover {
+            color: #f4ecd8;
+            background-color: #8c6d3f;
+            border-color: #8c6d3f;
         }
 
         /* Contenedor sencillo centrado para el botón de consulta */
@@ -489,7 +499,7 @@
                 <h3 class="cuadro-titulo">Solista</h3>
                 <ul class="cuadro-lista">
                     <li><span class="simbolo">➤</span> Piano y orquesta</li>
-                    <li><span class="simbolo">➤</span> <a href="repiano.html">Piano solo</a></li>
+                    <li><span class="simbolo">➤</span> Piano solo <a href="repiano.html" class="btn-repertorio">Repertorio</a></li>
                 </ul>
             </div>
 
@@ -726,13 +736,19 @@
         }
     </script>
 </body>
-</html>
-
+</html>            
+       
+        
+         
+        
+         
+       
+                   
        
 
-   
-
-
+     
+                
+         
          
 
                
