@@ -541,28 +541,6 @@
             </div>
         </div>
 
-        <!-- Muestra de vídeos MP4 nativos en cuadrícula 2x2 -->
-        <div class="videos-seccion">
-            <div class="videos-grid">
-                <video class="video-player" controls preload="metadata">
-                    <source src="mozart.mp4" type="video/mp4">
-                    Tu navegador no soporta el reproductor de vídeo.
-                </video>
-                <video class="video-player" controls preload="metadata">
-                    <source src="brahms.mp4" type="video/mp4">
-                    Tu navegador no soporta el reproductor de vídeo.
-                </video>
-                <video class="video-player" controls preload="metadata">
-                    <source src="strauss.mp4" type="video/mp4">
-                    Tu navegador no soporta el reproductor de vídeo.
-                </video>
-                <video class="video-player" controls preload="metadata">
-                    <source src="musicnsky.mp4" type="video/mp4">
-                    Tu navegador no soporta el reproductor de vídeo.
-                </video>
-            </div>
-        </div>
-
     </div>
 
     <!-- Modal para ver el vídeo carmina.mp4 (Piano y Orquesta) -->
@@ -803,35 +781,6 @@
                 }
             });
         });
-
-        // Envío del formulario formateado a correo electrónico
-        document.getElementById('form-solicitud').onsubmit = function(e) {
-            e.preventDefault();
-            
-            const slotsSeleccionados = Array.from(document.querySelectorAll('.slot-btn.selected'))
-                                             .map(btn => btn.getAttribute('data-time'));
-
-            if (slotsSeleccionados.length === 0) {
-                alert("Por favor, selecciona al menos una franja horaria.");
-                return;
-            }
-
-            const nombre = document.getElementById('nombre').value;
-            const mensaje = document.getElementById('mensaje').value;
-            const email = document.getElementById('email').value;
-            const fechas = document.getElementById('fechas').value;
-
-            const asunto = encodeURIComponent("Consulta de disponibilidad - Acompañamiento Pianístico");
-            const cuerpo = encodeURIComponent(
-                "Nombre: " + nombre + "\n" +
-                "Email: " + email + "\n" +
-                "Fecha/s solicitadas: " + fechas + "\n" +
-                "Franja/s horaria/s: " + slotsSeleccionados.join(", ") + "\n\n" +
-                "Mensaje:\n" + mensaje
-            );
-
-            window.location.href = `mailto:pablopianista1991@yahoo.com?subject=${asunto}&body=${cuerpo}`;
-        };
     </script>
 </body>
 </html>
