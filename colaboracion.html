@@ -297,7 +297,7 @@
         
         /* Modal Vídeo específico */
         .modal-video-content {
-            max-width: 700px;
+            max-width: 750px;
             text-align: center;
             padding: 25px 20px 20px 20px;
         }
@@ -488,7 +488,7 @@
                     <h3 class="cuadro-titulo">Acompañamiento pianístico</h3>
                     <ul class="cuadro-lista">
                         <li><span class="simbolo">➤</span> Ensayos</li>
-                        <li><span class="simbolo">➤</span> <a href="grabaciones.html" class="btn-repertorio">Grabaciones</a></li>
+                        <li><span class="simbolo">➤</span> <button type="button" class="btn-repertorio" id="btn-acompanamiento-modal">Grabaciones</button></li>
                         <li><span class="simbolo">➤</span> Oposiciones</li>
                         <li><span class="simbolo">➤</span> Pruebas de acceso a Enseñanzas Superiores y Máster</li>
                     </ul>
@@ -565,7 +565,7 @@
 
     </div>
 
-    <!-- Modal para ver el vídeo carmina.mp4 -->
+    <!-- Modal para ver el vídeo carmina.mp4 (Piano y Orquesta) -->
     <div id="modal-video-camina" class="modal">
         <div class="modal-content modal-video-content">
             <span class="modal-close" id="btn-cerrar-video-modal">&times;</span>
@@ -574,6 +574,24 @@
                 <source src="carmina.mp4" type="video/mp4">
                 Tu navegador no soporta el reproductor de vídeo.
             </video>
+        </div>
+    </div>
+
+    <!-- Modal para ver las grabaciones de Acompañamiento Pianístico (strauss.mp4 y mozart.mp4) -->
+    <div id="modal-video-acompanamiento" class="modal">
+        <div class="modal-content modal-video-content">
+            <span class="modal-close" id="btn-cerrar-acompanamiento-modal">&times;</span>
+            <h2 class="modal-title" style="margin-bottom:15px;">Acompañamiento Pianístico</h2>
+            <div class="videos-grid">
+                <video id="player-strauss" class="modal-video-player" controls preload="metadata">
+                    <source src="strauss.mp4" type="video/mp4">
+                    Tu navegador no soporta el reproductor de vídeo.
+                </video>
+                <video id="player-mozart" class="modal-video-player" controls preload="metadata">
+                    <source src="mozart.mp4" type="video/mp4">
+                    Tu navegador no soporta el reproductor de vídeo.
+                </video>
+            </div>
         </div>
     </div>
 
@@ -647,7 +665,7 @@
         document.addEventListener('click', reproducir, { once: true });
         document.addEventListener('touchstart', reproducir, { once: true });
 
-        // Control del Modal de Vídeo (carmina.mp4)
+        // Control del Modal de Vídeo Solista (carmina.mp4)
         const modalVideo = document.getElementById('modal-video-camina');
         const btnCamina = document.getElementById('btn-camina-modal');
         const btnCerrarVideo = document.getElementById('btn-cerrar-video-modal');
@@ -660,6 +678,23 @@
         btnCerrarVideo.onclick = function() {
             modalVideo.style.display = "none";
             playerCamina.pause();
+        }
+
+        // Control del Modal de Acompañamiento Pianístico (strauss.mp4 y mozart.mp4)
+        const modalAcompanamiento = document.getElementById('modal-video-acompanamiento');
+        const btnAcompanamiento = document.getElementById('btn-acompanamiento-modal');
+        const btnCerrarAcompanamiento = document.getElementById('btn-cerrar-acompanamiento-modal');
+        const playerStrauss = document.getElementById('player-strauss');
+        const playerMozart = document.getElementById('player-mozart');
+
+        btnAcompanamiento.onclick = function() {
+            modalAcompanamiento.style.display = "flex";
+        }
+
+        btnCerrarAcompanamiento.onclick = function() {
+            modalAcompanamiento.style.display = "none";
+            playerStrauss.pause();
+            playerMozart.pause();
         }
 
         // Control del Modal de Consulta y Reserva
@@ -685,6 +720,11 @@
             if (event.target == modalVideo) {
                 modalVideo.style.display = "none";
                 playerCamina.pause();
+            }
+            if (event.target == modalAcompanamiento) {
+                modalAcompanamiento.style.display = "none";
+                playerStrauss.pause();
+                playerMozart.pause();
             }
         }
 
