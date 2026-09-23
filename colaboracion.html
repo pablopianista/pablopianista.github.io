@@ -178,6 +178,8 @@
             text-decoration: none;
             transition: all 0.2s ease;
             vertical-align: middle;
+            cursor: pointer;
+            font-family: inherit;
         }
         .btn-repertorio:hover {
             color: #f4ecd8;
@@ -242,7 +244,7 @@
             box-shadow: 0 10px 24px rgba(114, 28, 28, 0.18);
         }
 
-        /* Modal para la reserva y selección de huecos (Time Slots) */
+        /* Modales (Reserva y Vídeo) */
         .modal {
             display: none;
             position: fixed;
@@ -292,6 +294,21 @@
             text-align: center;
             font-weight: 700;
         }
+        
+        /* Modal Vídeo específico */
+        .modal-video-content {
+            max-width: 700px;
+            text-align: center;
+            padding: 25px 20px 20px 20px;
+        }
+        .modal-video-player {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+            background-color: #000;
+            margin-top: 10px;
+        }
+
         .form-group {
             margin-bottom: 18px;
         }
@@ -505,7 +522,7 @@
                 <div>
                     <h3 class="cuadro-titulo">Solista</h3>
                     <ul class="cuadro-lista">
-                        <li><span class="simbolo">➤</span> Piano y orquesta <a href="reorquesta.html" class="btn-repertorio">Repertorio</a> <a href="graorquesta.html" class="btn-repertorio">Grabaciones</a></li>
+                        <li><span class="simbolo">➤</span> Piano y orquesta <a href="reorquesta.html" class="btn-repertorio">Repertorio</a> <button type="button" class="btn-repertorio" id="btn-camina-modal">Grabaciones</button></li>
                         <li><span class="simbolo">➤</span> Piano solo <a href="repiano.html" class="btn-repertorio">Repertorio</a> <a href="grapiano.html" class="btn-repertorio">Grabaciones</a></li>
                         <li><span class="simbolo">➤</span> Clave <a href="reclave.html" class="btn-repertorio">Repertorio</a></li>
                     </ul>
@@ -546,6 +563,18 @@
             </div>
         </div>
 
+    </div>
+
+    <!-- Modal para ver el vídeo camina.mp4 -->
+    <div id="modal-video-camina" class="modal">
+        <div class="modal-content modal-video-content">
+            <span class="modal-close" id="btn-cerrar-video-modal">&times;</span>
+            <h2 class="modal-title" style="margin-bottom:10px;">Piano y Orquesta</h2>
+            <video id="player-camina" class="modal-video-player" controls preload="metadata">
+                <source src="camina.mp4" type="video/mp4">
+                Tu navegador no soporta el reproductor de vídeo.
+            </video>
+        </div>
     </div>
 
     <!-- Modal con Formulario de Consulta -->
@@ -601,7 +630,7 @@
         </div>
     </div>
 
-    <!-- Scripts de funcionalidad del formulario y audio -->
+    <!-- Scripts de funcionalidad de los modales, formulario y audio -->
     <script>
         // Lógica para reproducir el audio de fondo
         const audio = document.getElementById('audio-fondo');
@@ -617,6 +646,21 @@
         window.addEventListener('load', reproducir);
         document.addEventListener('click', reproducir, { once: true });
         document.addEventListener('touchstart', reproducir, { once: true });
+
+        // Control del Modal de Vídeo (camina.mp4)
+        const modalVideo = document.getElementById('modal-video-camina');
+        const btnCamina = document.getElementById('btn-camina-modal');
+        const btnCerrarVideo = document.getElementById('btn-cerrar-video-modal');
+        const playerCamina = document.getElementById('player-camina');
+
+        btnCamina.onclick = function() {
+            modalVideo.style.display = "flex";
+        }
+
+        btnCerrarVideo.onclick = function() {
+            modalVideo.style.display = "none";
+            playerCamina.pause();
+        }
 
         // Control del Modal de Consulta y Reserva
         const modal = document.getElementById('modal-reserva');
@@ -637,6 +681,10 @@
         window.onclick = function(event) {
             if (event.target == modal) {
                 modal.style.display = "none";
+            }
+            if (event.target == modalVideo) {
+                modalVideo.style.display = "none";
+                playerCamina.pause();
             }
         }
 
