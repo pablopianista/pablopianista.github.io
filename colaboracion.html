@@ -523,7 +523,7 @@
                     <h3 class="cuadro-titulo">Solista</h3>
                     <ul class="cuadro-lista">
                         <li><span class="simbolo">➤</span> Piano y orquesta <a href="reorquesta.html" class="btn-repertorio">Repertorio</a> <button type="button" class="btn-repertorio" id="btn-camina-modal">Grabaciones</button></li>
-                        <li><span class="simbolo">➤</span> Piano solo <a href="repiano.html" class="btn-repertorio">Repertorio</a> <a href="grapiano.html" class="btn-repertorio">Grabaciones</a></li>
+                        <li><span class="simbolo">➤</span> Piano solo <a href="repiano.html" class="btn-repertorio">Repertorio</a> <button type="button" class="btn-repertorio" id="btn-pianosolo-modal">Grabaciones</button></li>
                         <li><span class="simbolo">➤</span> Clave <a href="reclave.html" class="btn-repertorio">Repertorio</a></li>
                     </ul>
                 </div>
@@ -534,7 +534,7 @@
                 <div>
                     <h3 class="cuadro-titulo">Música de cámara</h3>
                     <ul class="cuadro-lista">
-                        <li><span class="simbolo">➤</span> Ensembles</li>
+                        <li><span class="simbolo">➤</span> <span class="btn-repertorio">Ensembles</span></li>
                         <li><span class="simbolo">➤</span> <a href="recamara.html" class="btn-repertorio">Repertorio</a></li>
                     </ul>
                 </div>
@@ -552,6 +552,24 @@
                 <source src="carmina.mp4" type="video/mp4">
                 Tu navegador no soporta el reproductor de vídeo.
             </video>
+        </div>
+    </div>
+
+    <!-- Modal para ver las grabaciones de Piano Solo (haydn.mp4 y falla.mp4) -->
+    <div id="modal-video-pianosolo" class="modal">
+        <div class="modal-content modal-video-content">
+            <span class="modal-close" id="btn-cerrar-pianosolo-modal">&times;</span>
+            <h2 class="modal-title" style="margin-bottom:15px;">Piano Solo</h2>
+            <div class="videos-grid">
+                <video id="player-haydn" class="modal-video-player" controls preload="metadata">
+                    <source src="haydn.mp4" type="video/mp4">
+                    Tu navegador no soporta el reproductor de vídeo.
+                </video>
+                <video id="player-falla" class="modal-video-player" controls preload="metadata">
+                    <source src="falla.mp4" type="video/mp4">
+                    Tu navegador no soporta el reproductor de vídeo.
+                </video>
+            </div>
         </div>
     </div>
 
@@ -658,6 +676,23 @@
             playerCamina.pause();
         }
 
+        // Control del Modal de Piano Solo (haydn.mp4 y falla.mp4)
+        const modalPianoSolo = document.getElementById('modal-video-pianosolo');
+        const btnPianoSolo = document.getElementById('btn-pianosolo-modal');
+        const btnCerrarPianoSolo = document.getElementById('btn-cerrar-pianosolo-modal');
+        const playerHaydn = document.getElementById('player-haydn');
+        const playerFalla = document.getElementById('player-falla');
+
+        btnPianoSolo.onclick = function() {
+            modalPianoSolo.style.display = "flex";
+        }
+
+        btnCerrarPianoSolo.onclick = function() {
+            modalPianoSolo.style.display = "none";
+            playerHaydn.pause();
+            playerFalla.pause();
+        }
+
         // Control del Modal de Acompañamiento Pianístico (strauss.mp4 y mozart.mp4)
         const modalAcompanamiento = document.getElementById('modal-video-acompanamiento');
         const btnAcompanamiento = document.getElementById('btn-acompanamiento-modal');
@@ -698,6 +733,11 @@
             if (event.target == modalVideo) {
                 modalVideo.style.display = "none";
                 playerCamina.pause();
+            }
+            if (event.target == modalPianoSolo) {
+                modalPianoSolo.style.display = "none";
+                playerHaydn.pause();
+                playerFalla.pause();
             }
             if (event.target == modalAcompanamiento) {
                 modalAcompanamiento.style.display = "none";
