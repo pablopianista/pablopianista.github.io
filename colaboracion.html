@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Colaboración Artística - Pablo Moreno Camacho</title>
-    <!-- Tipografía clásica, fina y distinguished -->
+    <!-- Tipografía clásica, fina y distinguida -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&display=swap" rel="stylesheet">
@@ -244,7 +244,7 @@
             box-shadow: 0 10px 24px rgba(114, 28, 28, 0.18);
         }
 
-        /* Modales (Reserva y Vídeo) */
+        /* Modales (Reserva, Vídeos y Texto) */
         .modal {
             display: none;
             position: fixed;
@@ -307,6 +307,26 @@
             box-shadow: 0 6px 18px rgba(0,0,0,0.2);
             background-color: #000;
             margin-top: 10px;
+        }
+
+        /* Modal Texto/Información específico */
+        .modal-texto-content {
+            max-width: 650px;
+            text-align: justify;
+            line-height: 1.7;
+        }
+        .modal-texto-content p {
+            margin-bottom: 15px;
+            font-size: 1.05em;
+        }
+        .modal-texto-content ul {
+            margin-top: 5px;
+            margin-bottom: 18px;
+            padding-left: 20px;
+        }
+        .modal-texto-content li {
+            font-size: 1.05em;
+            margin-bottom: 4px;
         }
 
         .form-group {
@@ -534,13 +554,36 @@
                 <div>
                     <h3 class="cuadro-titulo">Música de cámara</h3>
                     <ul class="cuadro-lista">
-                        <li><span class="simbolo">➤</span> <span class="btn-repertorio">Ensembles</span></li>
+                        <li><span class="simbolo">➤</span> <button type="button" class="btn-repertorio" id="btn-ensembles-modal">Ensembles</button></li>
                         <li><span class="simbolo">➤</span> <a href="recamara.html" class="btn-repertorio">Repertorio</a></li>
                     </ul>
                 </div>
             </div>
         </div>
 
+    </div>
+
+    <!-- Modal para información del Trío Destenay (Ensembles) -->
+    <div id="modal-ensemble" class="modal">
+        <div class="modal-content modal-texto-content">
+            <span class="modal-close" id="btn-cerrar-ensemble-modal">&times;</span>
+            <h2 class="modal-title">Trío Destenay</h2>
+            
+            <p>El Trío Destenay es una formación de música de cámara integrada por músicos vinculados a la Orquesta Filarmónica de Málaga (OFM).</p>
+            
+            <p><strong>Sus integrantes actuales son:</strong></p>
+            <ul>
+                <li>Pedro Cusac (Oboe)</li>
+                <li>Vicente Casado (Clarinete)</li>
+                <li>Pablo Moreno (Piano)</li>
+            </ul>
+
+            <p>Esta agrupación toma su nombre del compositor francés Édouard Destenay, célebre en la música de cámara por su Trío en si menor para oboe, clarinete y piano, Op. 27. La formación participa regularmente en los ciclos de música de cámara organizados por la propia Orquesta Filarmónica de Málaga, frecuentemente celebrados en espacios como el Museo Picasso Málaga, además de otros festivales, en el Congreso Nacional de Clarinetes, en el Conservatorio Superior de Córdoba, y en el IX Festival Internacional de Música Yetas-Nerpio.</p>
+
+            <p>El Trío Destenay es un conjunto que nace en Málaga debido a la inquietud de tres talentosos músicos, que pretenden explorar y difundir la riqueza del repertorio camerístico que hay para esta formación tan poco común. La combinación del timbre del clarinete, oboe, y piano, crean una experiencia sonora mágica y excepcional.</p>
+
+            <p>Con un profundo compromiso por la música de cámara, el Trío Destenay busca conectar con el público a través de obras vibrantes y emotivas que enriquezcan el panorama musical actual.</p>
+        </div>
     </div>
 
     <!-- Modal para ver el vídeo carmina.mp4 (Piano y Orquesta) -->
@@ -661,19 +704,40 @@
         document.addEventListener('click', reproducir, { once: true });
         document.addEventListener('touchstart', reproducir, { once: true });
 
+        // Control del Modal de Ensembles (Trío Destenay)
+        const modalEnsemble = document.getElementById('modal-ensemble');
+        const btnEnsembles = document.getElementById('btn-ensembles-modal');
+        const btnCerrarEnsemble = document.getElementById('btn-cerrar-ensemble-modal');
+
+        if (btnEnsembles) {
+            btnEnsembles.onclick = function() {
+                modalEnsemble.style.display = "flex";
+            }
+        }
+
+        if (btnCerrarEnsemble) {
+            btnCerrarEnsemble.onclick = function() {
+                modalEnsemble.style.display = "none";
+            }
+        }
+
         // Control del Modal de Vídeo Solista (carmina.mp4)
         const modalVideo = document.getElementById('modal-video-camina');
         const btnCamina = document.getElementById('btn-camina-modal');
         const btnCerrarVideo = document.getElementById('btn-cerrar-video-modal');
         const playerCamina = document.getElementById('player-camina');
 
-        btnCamina.onclick = function() {
-            modalVideo.style.display = "flex";
+        if (btnCamina) {
+            btnCamina.onclick = function() {
+                modalVideo.style.display = "flex";
+            }
         }
 
-        btnCerrarVideo.onclick = function() {
-            modalVideo.style.display = "none";
-            playerCamina.pause();
+        if (btnCerrarVideo) {
+            btnCerrarVideo.onclick = function() {
+                modalVideo.style.display = "none";
+                playerCamina.pause();
+            }
         }
 
         // Control del Modal de Piano Solo (haydn.mp4 y falla.mp4)
@@ -683,14 +747,18 @@
         const playerHaydn = document.getElementById('player-haydn');
         const playerFalla = document.getElementById('player-falla');
 
-        btnPianoSolo.onclick = function() {
-            modalPianoSolo.style.display = "flex";
+        if (btnPianoSolo) {
+            btnPianoSolo.onclick = function() {
+                modalPianoSolo.style.display = "flex";
+            }
         }
 
-        btnCerrarPianoSolo.onclick = function() {
-            modalPianoSolo.style.display = "none";
-            playerHaydn.pause();
-            playerFalla.pause();
+        if (btnCerrarPianoSolo) {
+            btnCerrarPianoSolo.onclick = function() {
+                modalPianoSolo.style.display = "none";
+                playerHaydn.pause();
+                playerFalla.pause();
+            }
         }
 
         // Control del Modal de Acompañamiento Pianístico (strauss.mp4 y mozart.mp4)
@@ -700,14 +768,18 @@
         const playerStrauss = document.getElementById('player-strauss');
         const playerMozart = document.getElementById('player-mozart');
 
-        btnAcompanamiento.onclick = function() {
-            modalAcompanamiento.style.display = "flex";
+        if (btnAcompanamiento) {
+            btnAcompanamiento.onclick = function() {
+                modalAcompanamiento.style.display = "flex";
+            }
         }
 
-        btnCerrarAcompanamiento.onclick = function() {
-            modalAcompanamiento.style.display = "none";
-            playerStrauss.pause();
-            playerMozart.pause();
+        if (btnCerrarAcompanamiento) {
+            btnCerrarAcompanamiento.onclick = function() {
+                modalAcompanamiento.style.display = "none";
+                playerStrauss.pause();
+                playerMozart.pause();
+            }
         }
 
         // Control del Modal de Consulta y Reserva
@@ -722,13 +794,18 @@
             }
         });
 
-        btnCerrar.onclick = function() {
-            modal.style.display = "none";
+        if (btnCerrar) {
+            btnCerrar.onclick = function() {
+                modal.style.display = "none";
+            }
         }
 
         window.onclick = function(event) {
             if (event.target == modal) {
                 modal.style.display = "none";
+            }
+            if (event.target == modalEnsemble) {
+                modalEnsemble.style.display = "none";
             }
             if (event.target == modalVideo) {
                 modalVideo.style.display = "none";
@@ -751,41 +828,45 @@
         const fechasInput = document.getElementById('fechas');
         const btnCalendarTrigger = document.getElementById('btn-calendar-trigger');
 
-        btnCalendarTrigger.onclick = function() {
-            if (typeof hiddenDatePicker.showPicker === 'function') {
-                hiddenDatePicker.showPicker();
-            } else {
-                hiddenDatePicker.focus();
-            }
-        };
-
-        hiddenDatePicker.onchange = function() {
-            if (this.value) {
-                const partes = this.value.split('-');
-                const fechaSeleccionada = new Date(partes[0], partes[1] - 1, partes[2]);
-                const diaSemana = fechaSeleccionada.getDay(); // 0=Dom, 1=Lun, 2=Mar, 3=Mié, 4=Jue, 5=Vie, 6=Sáb
-
-                // Restricción para Miércoles (3) y Jueves (4)
-                if (diaSemana === 3 || diaSemana === 4) {
-                    alert("Lo sentimos, no hay disponibilidad los miércoles ni los jueves.");
-                    this.value = '';
-                    return;
-                }
-
-                const fechaFormateada = `${partes[2]}/${partes[1]}/${partes[0]}`;
-                
-                if (fechasInput.value.trim() === '') {
-                    fechasInput.value = fechaFormateada;
+        if (btnCalendarTrigger) {
+            btnCalendarTrigger.onclick = function() {
+                if (typeof hiddenDatePicker.showPicker === 'function') {
+                    hiddenDatePicker.showPicker();
                 } else {
-                    fechasInput.value += `, ${fechaFormateada}`;
+                    hiddenDatePicker.focus();
                 }
+            };
+        }
 
-                // Filtrar franjas horarias exactas según el día
-                actualizarSlotsHorarios(diaSemana);
+        if (hiddenDatePicker) {
+            hiddenDatePicker.onchange = function() {
+                if (this.value) {
+                    const partes = this.value.split('-');
+                    const fechaSeleccionada = new Date(partes[0], partes[1] - 1, partes[2]);
+                    const diaSemana = fechaSeleccionada.getDay(); // 0=Dom, 1=Lun, 2=Mar, 3=Mié, 4=Jue, 5=Vie, 6=Sáb
 
-                this.value = '';
-            }
-        };
+                    // Restricción para Miércoles (3) y Jueves (4)
+                    if (diaSemana === 3 || diaSemana === 4) {
+                        alert("Lo sentimos, no hay disponibilidad los miércoles ni los jueves.");
+                        this.value = '';
+                        return;
+                    }
+
+                    const fechaFormateada = `${partes[2]}/${partes[1]}/${partes[0]}`;
+                    
+                    if (fechasInput.value.trim() === '') {
+                        fechasInput.value = fechaFormateada;
+                    } else {
+                        fechasInput.value += `, ${fechaFormateada}`;
+                    }
+
+                    // Filtrar franjas horarias exactas según el día
+                    actualizarSlotsHorarios(diaSemana);
+
+                    this.value = '';
+                }
+            };
+        }
 
         function actualizarSlotsHorarios(diaSemana) {
             slots.forEach(slot => {
@@ -813,7 +894,7 @@
             });
         }
 
-        // Selección MÚLTIPLE de Time Slots
+        // Selección múltiple de franjas horarias activas
         slots.forEach(slot => {
             slot.addEventListener('click', function() {
                 if (!this.disabled) {
@@ -821,6 +902,21 @@
                 }
             });
         });
+
+        // Evento al enviar el formulario
+        const formSolicitud = document.getElementById('form-solicitud');
+        if (formSolicitud) {
+            formSolicitud.onsubmit = function(e) {
+                e.preventDefault();
+                alert("Solicitud enviada con éxito. Nos pondremos en contacto contigo lo antes posible.");
+                modal.style.display = "none";
+                formSolicitud.reset();
+                slots.forEach(slot => {
+                    slot.disabled = true;
+                    slot.classList.remove('selected');
+                });
+            };
+        }
     </script>
 </body>
 </html>
