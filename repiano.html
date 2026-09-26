@@ -282,10 +282,6 @@
             font-size: 0.98em;
             color: #5a462e;
         }
-        .obras-lista .sub-obra::before {
-            content: "└";
-            font-style: normal;
-        }
 
         .footer-contacto {
             margin-top: 40px;
@@ -319,7 +315,9 @@
                 height: 42px;
             }
         }
-    </style></head><body>
+    </style>
+</head>
+<body>
 
     <div class="container">
 
@@ -735,7 +733,7 @@
                     <div class="compositor-card">
                         <h3 class="compositor-nombre">Alejandro Cano Palomo</h3>
                         <ul class="obras-lista">
-                            <li>Sonata para piano nº 1</li>
+                            <li>Obras varias</li>
                         </ul>
                     </div>
                     <div class="compositor-card">
@@ -779,19 +777,11 @@
 
         </div>
 
-        <!-- Sección de Contacto al pie -->
-        <div class="footer-contacto">
-            Contacto para conciertos y recitales: <a href="mailto:pablopianista1991@yahoo.com">pablopianista1991@yahoo.com</a>
-        </div>
+        <footer class="footer-contacto">
+            <p>Contacto: <a href="mailto:pablomorenocamacho@hotmail.es">pablomorenocamacho@hotmail.es</a></p>
+        </footer>
 
     </div>
 
-    <!-- Script para Acordeón -->
-    <script>
-        document.querySelectorAll('.epoca-header').forEach(header => {
-            header.addEventListener('click', () => {
-                const bloque = header.parentElement;
-                bloque.classList.toggle('open');
-            });
-        });
-    </script></body></html>
+</body>
+</html>
