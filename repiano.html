@@ -166,6 +166,8 @@
             font-weight: 600;
             cursor: pointer;
             transition: all 0.25s ease;
+            text-decoration: none;
+            display: inline-block;
         }
         .btn-filtro:hover, .btn-filtro.active {
             background-color: #721c1c;
@@ -188,6 +190,7 @@
             box-shadow: 0 4px 12px rgba(43, 34, 25, 0.06);
             overflow: hidden;
             transition: all 0.3s ease;
+            scroll-margin-top: 20px;
         }
         .epoca-bloque:hover {
             box-shadow: 0 6px 18px rgba(114, 28, 28, 0.12);
@@ -361,18 +364,19 @@
             </h1>
         </div>
 
-        <!-- Buscador y Filtros -->
+        <!-- Buscador y Filtros / Accesos Directos -->
         <div class="controles-repertorio">
             <input type="text" id="buscador" class="input-busqueda" placeholder="Buscar por compositor u obra...">
             
             <div class="filtros-grid">
                 <button class="btn-filtro active" data-filtro="todos">Todos</button>
-                <button class="btn-filtro" data-filtro="barroco">Barroco</button>
-                <button class="btn-filtro" data-filtro="clasicismo">Clasicismo</button>
-                <button class="btn-filtro" data-filtro="romanticismo">Romanticismo</button>
-                <button class="btn-filtro" data-filtro="nacionalismo">Nacionalismo Español</button>
-                <button class="btn-filtro" data-filtro="siglo-xx">Siglo XX</button>
-                <button class="btn-filtro" data-filtro="siglo-xxi">Siglo XXI</button>
+                <a href="#barroco" class="btn-filtro">Barroco</a>
+                <a href="#clasicismo" class="btn-filtro">Clasicismo</a>
+                <a href="#romanticismo" class="btn-filtro">Romanticismo</a>
+                <a href="#nacionalismo" class="btn-filtro">Nacionalismo Español</a>
+                <a href="#impresionismo" class="btn-filtro">Impresionismo</a>
+                <a href="#siglo-xx" class="btn-filtro">Siglo XX</a>
+                <a href="#siglo-xxi" class="btn-filtro">Siglo XXI</a>
             </div>
         </div>
 
@@ -380,7 +384,7 @@
         <div class="epocas-container">
 
             <!-- 1. BARROCO -->
-            <div class="epoca-bloque open" data-epoca="barroco">
+            <div class="epoca-bloque open" id="barroco" data-epoca="barroco">
                 <div class="epoca-header">
                     <h2 class="epoca-titulo">
                         <span>Barroco</span>
@@ -423,7 +427,7 @@
             </div>
 
             <!-- 2. CLASICISMO -->
-            <div class="epoca-bloque open" data-epoca="clasicismo">
+            <div class="epoca-bloque open" id="clasicismo" data-epoca="clasicismo">
                 <div class="epoca-header">
                     <h2 class="epoca-titulo">
                         <span>Clasicismo</span>
@@ -479,7 +483,7 @@
             </div>
 
             <!-- 3. ROMANTICISMO -->
-            <div class="epoca-bloque open" data-epoca="romanticismo">
+            <div class="epoca-bloque open" id="romanticismo" data-epoca="romanticismo">
                 <div class="epoca-header">
                     <h2 class="epoca-titulo">
                         <span>Romanticismo</span>
@@ -542,7 +546,7 @@
             </div>
 
             <!-- 4. NACIONALISMO ESPAÑOL -->
-            <div class="epoca-bloque open" data-epoca="nacionalismo">
+            <div class="epoca-bloque open" id="nacionalismo" data-epoca="nacionalismo">
                 <div class="epoca-header">
                     <h2 class="epoca-titulo">
                         <span>Nacionalismo Español</span>
@@ -582,8 +586,35 @@
                 </div>
             </div>
 
-            <!-- 5. SIGLO XX -->
-            <div class="epoca-bloque open" data-epoca="siglo-xx">
+            <!-- 5. IMPRESIONISMO -->
+            <div class="epoca-bloque open" id="impresionismo" data-epoca="impresionismo">
+                <div class="epoca-header">
+                    <h2 class="epoca-titulo">
+                        <span>Impresionismo</span>
+                    </h2>
+                    <span class="epoca-icono">▼</span>
+                </div>
+                <div class="epoca-contenido">
+                    <div class="compositor-card">
+                        <h3 class="compositor-nombre">C. Debussy</h3>
+                        <ul class="obras-lista">
+                            <li>2 Arabescas L66</li>
+                            <li>"El rincón de los niños" L. 113</li>
+                            <li>"Claro de luna" (Suite bergamasca)</li>
+                            <li>Preludios</li>
+                            <li class="sub-obra">I Danseuses de Delphes</li>
+                            <li class="sub-obra">II Voiles</li>
+                            <li class="sub-obra">IV Les sons et les parfums tournent dans l´air du soir</li>
+                            <li class="sub-obra">VI Des pas sur la neige</li>
+                            <li class="sub-obra">VIII La fille aux cheveux de lin</li>
+                            <li class="sub-obra">XII Minstrels</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6. SIGLO XX -->
+            <div class="epoca-bloque open" id="siglo-xx" data-epoca="siglo-xx">
                 <div class="epoca-header">
                     <h2 class="epoca-titulo">
                         <span>Siglo XX</span>
@@ -614,15 +645,6 @@
                             <li class="sub-obra">"Gárgolas"</li>
                             <li class="sub-obra">"¡Tora! ¡Tora! ¡Tora!" (Cadenza apocalíptica)</li>
                             <li class="sub-obra">"Una profecía de Nostradamus"</li>
-                        </ul>
-                    </div>
-                    <div class="compositor-card">
-                        <h3 class="compositor-nombre">C. Debussy</h3>
-                        <ul class="obras-lista">
-                            <li>Segunda Arabesca L. 66</li>
-                            <li>"El rincón de los niños" L. 113</li>
-                            <li>"Claro de luna" (Suite bergamasca)</li>
-                            <li>Preludios (Primer libro) L. 117 (I, II, IV, VI, VIII, XII)</li>
                         </ul>
                     </div>
                     <div class="compositor-card">
@@ -682,7 +704,7 @@
                         <ul class="obras-lista">
                             <li>Sonatina en Fa sostenido (1903-1905)</li>
                             <li>Valses nobles y sentimentales (1911)</li>
-                            <li>La tumba de Couperin (1914-1917)</li>
+                            <li>Le tombeau de Couperin (1914-1917)</li>
                             <li>"Pavana para una infanta difunta"</li>
                         </ul>
                     </div>
@@ -701,8 +723,8 @@
                 </div>
             </div>
 
-            <!-- 6. SIGLO XXI -->
-            <div class="epoca-bloque open" data-epoca="siglo-xxi">
+            <!-- 7. SIGLO XXI -->
+            <div class="epoca-bloque open" id="siglo-xxi" data-epoca="siglo-xxi">
                 <div class="epoca-header">
                     <h2 class="epoca-titulo">
                         <span>Siglo XXI</span>
@@ -725,7 +747,7 @@
                     <div class="compositor-card">
                         <h3 class="compositor-nombre">A. Charles</h3>
                         <ul class="obras-lista">
-                            <li>"Desde una armonía" - Preludios (Segundo libro) (2011)</li>
+                            <li>"From a harmony" - Preludios (Segundo libro) (2011)</li>
                         </ul>
                     </div>
                     <div class="compositor-card">
@@ -745,9 +767,9 @@
                         <h3 class="compositor-nombre">Pablo Moreno Camacho</h3>
                         <ul class="obras-lista">
                             <li>Suite Loja (2021-...)</li>
-                            <li class="sub-obra">I Loja a medianoche (2021)</li>
-                            <li class="sub-obra">II Amanecer en Loja (2022)</li>
-                            <li class="sub-obra">III Loja al atardecer (2026)</li>
+                            <li class="sub-obra">I oja a medianoche (2021)</li>
+                            <li class="sub-obra">II manecer en Loja (2022)</li>
+                            <li class="sub-obra">III oja al atardecer (2026)</li>
                             <li>"Pequeña bailarina en un planeta desconocido" (2021)</li>
                             <li>Canto lucentino: Homenaje a Fernando Chicano (2023)</li>
                         </ul>
