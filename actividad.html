@@ -298,6 +298,39 @@
             font-weight: 700;
         }
         
+        /* Pestañas para cambiar entre ensembles */
+        .tab-navigation {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #8c6d3f;
+            padding-bottom: 10px;
+        }
+        .tab-btn {
+            background-color: transparent;
+            border: 1px solid #8c6d3f;
+            color: #8c6d3f;
+            padding: 6px 16px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1em;
+            font-weight: 700;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+        .tab-btn.active, .tab-btn:hover {
+            background-color: #721c1c;
+            color: #f4ecd8;
+            border-color: #721c1c;
+        }
+        .tab-pane {
+            display: none;
+        }
+        .tab-pane.active {
+            display: block;
+        }
+
         /* Modal Vídeo específico */
         .modal-video-content {
             max-width: 750px;
@@ -567,40 +600,57 @@
 
     </div>
 
-    <!-- Modal para información del Trío Destenay (Ensembles) -->
+    <!-- Modal para información de Ensembles (Trío Destenay y Nura Trío) -->
     <div id="modal-ensemble" class="modal">
         <div class="modal-content modal-texto-content">
             <span class="modal-close" id="btn-cerrar-ensemble-modal">&times;</span>
-            <h2 class="modal-title">Trío Destenay</h2>
             
-            <!-- Imagen del Trío Destenay -->
-            <img src="destenay.jpeg" alt="Trío Destenay" class="img-destenay">
+            <!-- Botones de pestañas -->
+            <div class="tab-navigation">
+                <button type="button" class="tab-btn active" onclick="cambiarEnsemble('destenay', this)">Trío Destenay</button>
+                <button type="button" class="tab-btn" onclick="cambiarEnsemble('nura', this)">Nura Trío</button>
+            </div>
 
-            <p>El Trío Destenay es una formación de música de cámara integrada por músicos vinculados a la Orquesta Filarmónica de Málaga (OFM).</p>
-            
-            <p><strong>Sus integrantes actuales son:</strong></p>
-            <ul>
-                <li>Pedro Cusac (Oboe)</li>
-                <li>Vicente Casado (Clarinete)</li>
-                <li>Pablo Moreno (Piano)</li>
-            </ul>
+            <!-- Contenido: Trío Destenay -->
+            <div id="tab-destenay" class="tab-pane active">
+                <h2 class="modal-title">Trío Destenay</h2>
+                
+                <!-- Imagen del Trío Destenay -->
+                <img src="destenay.jpeg" alt="Trío Destenay" class="img-destenay">
 
-            <p>Esta agrupación toma su nombre del compositor francés Édouard Destenay, célebre en la música de cámara por su Trío en si menor para oboe, clarinete y piano, Op. 27. La formación participa regularmente en los ciclos de música de cámara organizados por la propia Orquesta Filarmónica de Málaga, frecuentemente celebrados en espacios como el Museo Picasso Málaga, además de otros festivales, en el Congreso Nacional de Clarinetes, en el Conservatorio Superior de Córdoba, y en el IX Festival Internacional de Música Yetas-Nerpio.</p>
+                <p>El Trío Destenay es una formación de música de cámara integrada por músicos vinculados a la Orquesta Filarmónica de Málaga (OFM).</p>
+                
+                <p><strong>Sus integrantes actuales son:</strong></p>
+                <ul>
+                    <li>Pedro Cusac (Oboe)</li>
+                    <li>Vicente Casado (Clarinete)</li>
+                    <li>Pablo Moreno (Piano)</li>
+                </ul>
 
-            <p>El Trío Destenay es un conjunto que nace en Málaga debido a la inquietud de tres talentosos músicos, que pretenden explorar y difundir la riqueza del repertorio camerístico que hay para esta formación tan poco común. La combinación del timbre del clarinete, oboe, y piano, crean una experiencia sonora mágica y excepcional.</p>
+                <p>Esta agrupación toma su nombre del compositor francés Édouard Destenay, célebre en la música de cámara por su Trío en si menor para oboe, clarinete y piano, Op. 27. La formación participa regularmente en los ciclos de música de cámara organizados por la propia Orquesta Filarmónica de Málaga, frecuentemente celebrados en espacios como el Museo Picasso Málaga, además de otros festivales, en el Congreso Nacional de Clarinetes, en el Conservatorio Superior de Córdoba, y en el IX Festival Internacional de Música Yetas-Nerpio.</p>
 
-            <p>Con un profundo compromiso por la música de cámara, el Trío Destenay busca conectar con el público a través de obras vibrantes y emotivas que enriquezcan el panorama musical actual.</p>
+                <p>El Trío Destenay es un conjunto que nace en Málaga debido a la inquietud de tres talentosos músicos, que pretenden explorar y difundir la riqueza del repertorio camerístico que hay para esta formación tan poco común. La combinación del timbre del clarinete, oboe, y piano, crean una experiencia sonora mágica y excepcional.</p>
+
+                <p>Con un profundo compromiso por la música de cámara, el Trío Destenay busca conectar con el público a través de obras vibrantes y emotivas que enriquezcan el panorama musical actual.</p>
+            </div>
+
+            <!-- Contenido: Nura Trío -->
+            <div id="tab-nura" class="tab-pane">
+                <h2 class="modal-title">Nura Trío</h2>
+
+                <p><strong>Está conformado por:</strong></p>
+                <ul>
+                    <li>Beatriz Claudio (Violoncello)</li>
+                    <li>Virginia Moreno (Clarinete)</li>
+                    <li>Pablo Moreno (Piano)</li>
+                </ul>
+
+                <p>Nura Trío propone una mirada hacia obras de compositoras cuya música ha tenido una presencia menos habitual en los escenarios. Compositoras, obras y diferentes momentos históricos y estilísticos confluyen en un mismo programa para ampliar el paisaje sonoro de esta formación.</p>
+
+                <p>Más que recuperar un repertorio se trata de escucharlo: descubrir estas obras, otras perspectivas y otras maneras de entender la creación musical.</p>
+            </div>
         </div>
     </div>
-
-   
-            <img src="destenay.jpeg" alt="Trío Destenay" class="img-destenay">
-
-           </div>
-    </div>
-  
-
-
 
     <!-- Modal para ver el vídeo carmina.mp4 (Piano y Orquesta) -->
     <div id="modal-video-camina" class="modal">
@@ -709,7 +759,7 @@
         const audio = document.getElementById('audio-fondo');
 
         function reproducir() {
-            if (audio.paused) {
+            if (audio && audio.paused) {
                 audio.play().catch(function(e) {
                     console.log("Esperando interacción del usuario...");
                 });
@@ -720,7 +770,19 @@
         document.addEventListener('click', reproducir, { once: true });
         document.addEventListener('touchstart', reproducir, { once: true });
 
-        // Control del Modal de Ensembles (Trío Destenay)
+        // Lógica para cambiar de pestaña entre ensembles (Trío Destenay y Nura Trío)
+        function cambiarEnsemble(tabId, btn) {
+            const panes = document.querySelectorAll('#modal-ensemble .tab-pane');
+            const btns = document.querySelectorAll('#modal-ensemble .tab-btn');
+
+            panes.forEach(pane => pane.classList.remove('active'));
+            btns.forEach(b => b.classList.remove('active'));
+
+            document.getElementById('tab-' + tabId).classList.add('active');
+            btn.classList.add('active');
+        }
+
+        // Control del Modal de Ensembles
         const modalEnsemble = document.getElementById('modal-ensemble');
         const btnEnsembles = document.getElementById('btn-ensembles-modal');
         const btnCerrarEnsemble = document.getElementById('btn-cerrar-ensemble-modal');
@@ -752,7 +814,7 @@
         if (btnCerrarVideo) {
             btnCerrarVideo.onclick = function() {
                 modalVideo.style.display = "none";
-                playerCamina.pause();
+                if (playerCamina) playerCamina.pause();
             }
         }
 
@@ -772,8 +834,8 @@
         if (btnCerrarPianoSolo) {
             btnCerrarPianoSolo.onclick = function() {
                 modalPianoSolo.style.display = "none";
-                playerHaydn.pause();
-                playerFalla.pause();
+                if (playerHaydn) playerHaydn.pause();
+                if (playerFalla) playerFalla.pause();
             }
         }
 
@@ -793,8 +855,8 @@
         if (btnCerrarAcompanamiento) {
             btnCerrarAcompanamiento.onclick = function() {
                 modalAcompanamiento.style.display = "none";
-                playerStrauss.pause();
-                playerMozart.pause();
+                if (playerStrauss) playerStrauss.pause();
+                if (playerMozart) playerMozart.pause();
             }
         }
 
@@ -816,6 +878,7 @@
             }
         }
 
+        // Cierre de modales al hacer clic fuera del contenido
         window.onclick = function(event) {
             if (event.target == modal) {
                 modal.style.display = "none";
@@ -825,19 +888,19 @@
             }
             if (event.target == modalVideo) {
                 modalVideo.style.display = "none";
-                playerCamina.pause();
+                if (playerCamina) playerCamina.pause();
             }
             if (event.target == modalPianoSolo) {
                 modalPianoSolo.style.display = "none";
-                playerHaydn.pause();
-                playerFalla.pause();
+                if (playerHaydn) playerHaydn.pause();
+                if (playerFalla) playerFalla.pause();
             }
             if (event.target == modalAcompanamiento) {
                 modalAcompanamiento.style.display = "none";
-                playerStrauss.pause();
-                playerMozart.pause();
+                if (playerStrauss) playerStrauss.pause();
+                if (playerMozart) playerMozart.pause();
             }
-        }
+        };
 
         // Selección de fechas con filtro de días disponibles y franjas adaptativas
         const hiddenDatePicker = document.getElementById('hidden-date-picker');
