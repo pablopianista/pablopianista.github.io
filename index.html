@@ -158,6 +158,23 @@
             transform: scale(1.02);
         }
 
+        /* Estilo de la firma artística al final */
+        .firma-artistica {
+            max-width: 220px;
+            height: auto;
+            margin: 40px auto 20px auto;
+            display: block;
+            mix-blend-mode: multiply;
+            filter: sepia(0.2) contrast(1.1);
+            opacity: 0.9;
+            transform: rotate(-3deg);
+            transition: all 0.4s ease;
+        }
+        .firma-artistica:hover {
+            opacity: 1;
+            transform: rotate(-1deg) scale(1.05);
+        }
+
         /* Adaptación móvil */
         @media (max-width: 600px) {
             .nombre-artista {
@@ -175,6 +192,10 @@
             }
             .seccion-videos {
                 grid-template-columns: 1fr;
+            }
+            .firma-artistica {
+                max-width: 170px;
+                margin-top: 30px;
             }
         }
     </style>
@@ -237,6 +258,9 @@
                 Tu navegador no soporta el reproductor de vídeo.
             </video>
         </div>
+
+        <!-- Firma artística -->
+        <img src="firma.png" alt="Firma de Pablo Moreno Camacho" class="firma-artistica">
 
     </div>
 
